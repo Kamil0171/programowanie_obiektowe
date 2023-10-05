@@ -1,1 +1,187 @@
+Zad 1. Napisz prostą aplikację kalkulatora tekstowego, która przyjmuje dwa liczby od użytkownika jako wejście i wykonuje podstawowe operacje matematyczne (dodawanie, odejmowanie, mnożenie, dzielenie). Wyświetl wyniki na ekranie.
 
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj pierwsza liczbe: ");
+        double liczba1 = scanner.nextDouble();
+        System.out.println("Podaj druga lcizbe: ");
+        double liczba2 = scanner.nextDouble();
+        System.out.println("Wynik dodawania to: "+(liczba1 + liczba2));
+        System.out.println("Wynik odejmowania to: "+(liczba1 - liczba2));
+        System.out.println("Wynik mnozenia to: "+(liczba1 * liczba2));
+        System.out.println("Wynik dzielenia to: "+(liczba1 / liczba2));
+    }
+}
+
+Zad 2. Napisz program, który wczytuje ze standardowego wejścia dwa łańcuchy znaków, a następnie wypisuje je w kolejnych wierszach na standardowym wyjściu.
+
+Zad 3. Napisz program, który wczytuje ze standardowego wejścia cztery liczby wymierne, a następnie wypisuje ich sumę na standardowym wyjściu.
+
+Zad 4. Stwórz program do obliczenia pola kwadratu. Dane pobierz od użytkownika, wynik wyświetl na standardowym wyjściu.
+
+Zad 5. Napisz program, który przyjmuje trzy liczby całkowite jako argumenty i zwraca największą z nich. Zastosuj instrukcje warunkowe do porównania liczb.
+
+Zad 6. Napisz program, który na podstawie podanego jako argument numeru dnia tygodnia (od 1 do 7) wypisze nazwę tego dnia tygodnia. Dla przykładu, jeżeli użytkownik poda liczbę 1, program powinien wypisać “Poniedziałek”. Jeżeli podana liczba nie jest z zakresu od 1 do 7, program powinien wyświetlić komunikat “Niepoprawny numer dnia tygodnia”.
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj numer dnia tygodnia: ");
+        int numerdnia = scanner.nextInt();
+
+        switch (numerdnia)
+        {
+            case 1:
+                System.out.println("Poniedzialek");
+                break;
+            case 2:
+                System.out.println("Wtorek");
+                break;
+            case 3:
+                System.out.println("Sroda");
+                break;
+            case 4:
+                System.out.println("Czwartek");
+                break;
+            case 5:
+                System.out.println("Piatek");
+                break;
+            case 6:
+                System.out.println("Sobota");
+                break;
+            case 7:
+                System.out.println("Niedziela");
+                break;
+            default:
+                System.out.println("Zly dzien tygodnia");
+        }
+    }
+}
+
+Zad 7. Napisz program, który będzie sprawdzał, czy podany rok jest rokiem przestępnym. Rok jest przestępny, jeśli jest podzielny przez 4, ale nie jest podzielny przez 100, chyba że jest podzielny przez 400
+
+Zad 8. Napisz program sprawdzający czy podane liczby z klawiatury mogą stanowić poprawna godzinę w formacie 24-godzinnym.
+Przykładowe wejście:
+Podaj godzinę: 22
+Podaj minuty: 12
+Podaj sekundy: 33
+Przykładowe wyjście:
+Poprawna godzina!
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj godzinę: ");
+        int godzina = scanner.nextInt();
+        System.out.print("Podaj minuty: ");
+        int minuty = scanner.nextInt();
+        System.out.print("Podaj sekundy: ");
+        int sekundy = scanner.nextInt();
+        if (godzina >= 0 && godzina <= 23 && minuty >= 0 && minuty <= 59 && sekundy >= 0 && sekundy <= 59)
+        {
+            System.out.println("Poprawna godzina!");
+        }
+        else
+        {
+            System.out.println("Niepoprawna godzina.");
+        }
+    }
+}
+
+Zad 9. Napisz program, który wykorzystując pętlę for wyświetli liczby od 1 do 100.
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args)
+    {
+        for (int i = 1; i <= 100; i++)
+        {
+            System.out.println(i);
+        }
+    }
+}
+
+Zad 10. Napisz program, który przy użyciu pętli while obliczy sumę liczb od 1 do 50.
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        int suma = 0;
+        int liczba = 1;
+
+        while (liczba <= 50)
+        {
+            suma += liczba;
+            liczba++;
+        }
+        System.out.println("Suma liczb od 1 do 50 wynosi: " + suma);
+    }
+}
+
+Zad 11. Napisz program, który oblicza sumę cyfr dowolnej wprowadzonej liczby. Program powinien akceptować liczbę jako input od użytkownika.
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Wprowadź liczbę: ");
+        int liczba = scanner.nextInt();
+        int sumaCyfr = 0;
+
+        while (liczba != 0)
+        {
+            int cyfra = liczba % 10;
+            sumaCyfr += cyfra;
+            liczba /= 10;
+        }
+        System.out.println("Suma cyfr wprowadzonej liczby wynosi: " + sumaCyfr);
+    }
+}
+
+Zad 12. Stwórz program, który przyjmie od użytkownika liczbę całkowitą i zwróci tę liczbę w odwrotnej kolejności. Na przykład, dla liczby 12345, wynik powinien wynosić 54321. Możesz ograniczyć program tylko do liczb dodatnich.
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podana liczba: ");
+        int liczba = scanner.nextInt();
+        int odwroconaLiczba = 0;
+
+        while (liczba != 0)
+        {
+            int cyfra = liczba % 10;
+            odwroconaLiczba = odwroconaLiczba * 10 + cyfra;
+            liczba /= 10;
+        }
+        System.out.println("Odwrocona liczba: " + odwroconaLiczba);
+    }
+}
+
+Zad 13. Napisz program, który sprawdzi, czy podana liczba jest liczbą Armstronga. Liczba Amstronga to taka, której suma jej cyfr podniesionych do potęgi równiej liczbie cyfr w tej liczbie, jest równa samej liczbie. (Liczba 153 jest liczbą Armstronga)
+
+Zad 14. Napisz program wczytujący kolejne liczby całkowite (różnych znaków) z klawiatury i kończący się gdy ich suma przekroczy 100.
