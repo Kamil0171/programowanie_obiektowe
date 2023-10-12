@@ -39,3 +39,37 @@ public class Main {
 }
 
 Zad 3. generateRandomGaussian, która generuje i zwraca losową liczbę zmiennoprzecinkową zgodnie z rozkładem normalnym.
+
+Zad 4. Napisz program, który tworzy tablicę jednowymiarową 10 liczb całkowitych, a następnie wyświetla je w konsoli w porządku odwrotnym do wprowadzenia
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        int[] numbers = new int[10];
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj 10 liczb:");
+
+        for (int i = 0; i < 10; i++)
+        {
+            numbers[i] = scanner.nextInt();
+        }
+        reverse(numbers);
+    }
+    public static void reverse(int[] tab)
+    {
+        System.out.println("Odwrocone liczby:");
+        for (int i = tab.length - 1; i >= 0; i--)
+        {
+            System.out.println(tab[i]);
+        }
+    }
+}
+
+Zad 5. Utwórz program, który tworzy jednowymiarową tablicę 20 liczb losowych z przedziału od 1 do 100, a następnie oblicza i wyświetla ich średnią wartość
+
+Zad  6. Napisz program, który tworzy tablicę jednowymiarową 15 liczb całkowitych, a następnie oblicza i wyświetla największą i najmniejszą wartość w tablicy
+
+Zad 7. Napisz program, który przyjmuje jako wejście pojedynczy znak oraz liczbę całkowitą n. Używając klasy StringBuilder, zbuduj i wypisz piramidę o wysokości n, gdzie każdy poziom piramidy składa się z podanego znaku. Na przykład dla znaku * i n=3, oczekiwany wynik to:
