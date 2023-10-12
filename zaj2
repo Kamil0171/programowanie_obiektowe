@@ -211,3 +211,9 @@ public class Main
         }
     }
 }
+
+Zad 8. Dany jest napis. Używając StringBuilder, napisz program, który usuwa wszystkie powtarzające się znaki, pozostawiając tylko pierwsze wystąpienie każdego znaku. Na przykład dla napisu “bananowy”, oczekiwany wynik to “banowy”.
+
+Zad 9. Napisz metodę statyczną reverseString, która przyjmuje jako argument obiekt typu StringBuilder i zwraca nowy StringBuilder, będący odwróconym napisem pierwotnym.
+
+Zad 10. 
