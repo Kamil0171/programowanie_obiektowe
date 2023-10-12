@@ -72,4 +72,51 @@ Zad 5. Utwórz program, który tworzy jednowymiarową tablicę 20 liczb losowych
 
 Zad  6. Napisz program, który tworzy tablicę jednowymiarową 15 liczb całkowitych, a następnie oblicza i wyświetla największą i najmniejszą wartość w tablicy
 
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        int[] numbers = new int[15];
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj 15 liczb");
+
+        for (int i = 0; i < 15; i++) 
+        {
+            numbers[i] = scanner.nextInt();
+        }
+
+        int min = min(numbers);
+        int max = max(numbers);
+
+        System.out.println("Najmniejsza wartosc: " + min);
+        System.out.println("Najwieksza wartosc: " + max);
+    }
+    public static int min(int[] tab)
+    {
+        int min = tab[0];
+        for (int num : tab)
+        {
+            if (num < min) 
+            {
+                min = num;
+            }
+        }
+        return min;
+    }
+    public static int max(int[] tab)
+    {
+        int max = tab[0];
+        for (int num : tab) 
+        {
+            if (num > max)
+            {
+                max = num;
+            }
+        }
+        return max;
+    }
+}
+
 Zad 7. Napisz program, który przyjmuje jako wejście pojedynczy znak oraz liczbę całkowitą n. Używając klasy StringBuilder, zbuduj i wypisz piramidę o wysokości n, gdzie każdy poziom piramidy składa się z podanego znaku. Na przykład dla znaku * i n=3, oczekiwany wynik to:
