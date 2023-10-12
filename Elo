@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class ReverseArrayFunction {
+    public static void main(String[] args) {
+        int[] numbers = new int[10];
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Wprowadź 10 liczb całkowitych:");
+
+        for (int i = 0; i < 10; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+
+        reverseAndPrint(numbers);
+
+        scanner.close();
+    }
+
+    public static void reverseAndPrint(int[] arr) {
+        System.out.println("Liczby w odwrotnym porządku:");
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            System.out.println(arr[i]);
+        }
+    }
+}
