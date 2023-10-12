@@ -1,42 +1,32 @@
-import java.util.Scanner;
+import java.util.Random;
 
-public class MinMaxArrayFunction {
+public class AverageRandomArrayFunction {
     public static void main(String[] args) {
-        int[] numbers = new int[15];
-        Scanner scanner = new Scanner(System.in);
+        int[] numbers = new int[20];
 
-        System.out.println("Wprowadź 15 liczb całkowitych:");
+        generateRandomNumbers(numbers, 1, 100);
+        double average = calculateAverage(numbers);
 
-        for (int i = 0; i < 15; i++) {
-            numbers[i] = scanner.nextInt();
+        System.out.println("Losowe liczby:");
+        for (int num : numbers) {
+            System.out.print(num + " ");
         }
 
-        int min = findMin(numbers);
-        int max = findMax(numbers);
-
-        System.out.println("Najmniejsza wartość: " + min);
-        System.out.println("Największa wartość: " + max);
-
-        scanner.close();
+        System.out.println("\nŚrednia wartość: " + average);
     }
 
-    public static int findMin(int[] arr) {
-        int min = arr[0];
-        for (int num : arr) {
-            if (num < min) {
-                min = num;
-            }
+    public static void generateRandomNumbers(int[] arr, int min, int max) {
+        Random random = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(max - min + 1) + min;
         }
-        return min;
     }
 
-    public static int findMax(int[] arr) {
-        int max = arr[0];
+    public static double calculateAverage(int[] arr) {
+        int sum = 0;
         for (int num : arr) {
-            if (num > max) {
-                max = num;
-            }
+            sum += num;
         }
-        return max;
+        return (double) sum / arr.length;
     }
 }
