@@ -1,1 +1,41 @@
+Zad 1. Napisz metodę generateRandomInt, która generuje i zwraca losową liczbę całkowitą.
 
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args)
+    {
+        System.out.println(generateRandomInt());
+    }
+
+    public static int generateRandomInt()
+    {
+        Random random = new Random();
+        return random.nextInt();
+    }
+}
+
+Zad 2. generateRandomDouble, która generuje i zwraca losową liczbę zmiennoprzecinkową z zakresu od 0.0 do 1.0
+
+import java.util.Random;
+
+public class Main {
+
+    public static Random random = new Random();
+    public static void main(String[] args)
+    {
+        System.out.println(generateRandomDouble());
+    }
+    public static int generateRandomInt()
+    {
+        Random random = new Random();
+        return random.nextInt();
+    }
+
+    public static double generateRandomDouble()
+    {
+        return random.nextDouble();
+    }
+}
+
+Zad 3. generateRandomGaussian, która generuje i zwraca losową liczbę zmiennoprzecinkową zgodnie z rozkładem normalnym.
