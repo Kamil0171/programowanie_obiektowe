@@ -216,4 +216,4 @@ Zad 8. Dany jest napis. Używając StringBuilder, napisz program, który usuwa w
 
 Zad 9. Napisz metodę statyczną reverseString, która przyjmuje jako argument obiekt typu StringBuilder i zwraca nowy StringBuilder, będący odwróconym napisem pierwotnym.
 
-Zad 10. 
+Zad 10. Napisz program, który tworzy listę tablicową 10 liczb zmiennoprzecinkowych, a następnie oblicza i wyświetla ich sumę.
