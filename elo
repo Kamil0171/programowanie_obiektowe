@@ -1,21 +1,23 @@
 
-public class Dog {
-    private String name;
-    private String breed;
-    private int age;
+public class Car {
+    String brand;
+}
 
-    public Dog(String name, String breed, int age) {
-        this.name = name;
-        this.breed = breed;
-        this.age = age;
-    }
-
-    public void bark() {
-        System.out.println("Hau Hau");
-    }
-
+public class Main {
     public static void main(String[] args) {
-        Dog myDog = new Dog("Burek", "Golden Retriever", 3);
-        myDog.bark();
+        // Podpunkt A
+        Car car = null;
+        try {
+            String carBrand = car.brand;
+        } catch (NullPointerException e) {
+            System.out.println("Podpunkt A: Wyjątek NullPointerException został rzucony.");
+        }
+
+        // Podpunkt B
+        if (car != null) {
+            String carBrand = car.brand;
+        } else {
+            System.out.println("Podpunkt B: Obiekt car jest null.");
+        }
     }
 }
