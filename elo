@@ -1,42 +1,49 @@
-public class Czlowiek {
-    String imie;
+class Licznik {
+    int liczba;
 
-    public Czlowiek(String imie) {
-        this.imie = imie;
+    void zwieksz(int wartosc) {
+        liczba += wartosc;
     }
 
-    public void przedstawSie() {
-        System.out.println("Cześć, jestem " + imie);
+    void dodaj(Licznik innyLicznik) {
+        liczba += innyLicznik.liczba;
+    }
+}
+
+class Zmieniacz {
+    void zmienWartosc(int wartosc) {
+        wartosc = 42; // Zmiana wartości argumentu
     }
 
-    public void powiedzCzesc(Czlowiek innyCzlowiek) {
-        System.out.println("Cześć, " + innyCzlowiek.imie);
+    void zmienObiekt(Licznik licznik) {
+        licznik.liczba = 99; // Zmiana wartości pola liczba obiektu Licznik
     }
+}
 
-    public void zmienImie(String noweImie) {
-        imie = noweImie;
-    }
-
-    public void zamienImionami(Czlowiek innyCzlowiek) {
-        String tempImie = this.imie;
-        this.imie = innyCzlowiek.imie;
-        innyCzlowiek.imie = tempImie;
-    }
-
+public class Main {
     public static void main(String[] args) {
-        Czlowiek osoba1 = new Czlowiek("Anna");
-        Czlowiek osoba2 = new Czlowiek("Bartek");
+        // Krok 1
+        Licznik licznik1 = new Licznik();
+        int wartosc1 = 5;
+        licznik1.zwieksz(wartosc1);
+        System.out.println("Wartość licznika1: " + licznik1.liczba);
 
-        osoba1.przedstawSie();
-        osoba2.przedstawSie();
+        // Krok 2
+        Licznik licznik2 = new Licznik();
+        licznik2.liczba = 10;
+        licznik1.dodaj(licznik2);
+        System.out.println("Wartość licznika1 po dodaniu licznika2: " + licznik1.liczba);
+        System.out.println("Wartość licznika2 po dodaniu do licznika1: " + licznik2.liczba);
 
-        osoba1.powiedzCzesc(osoba2);
+        // Krok 3
+        Zmieniacz zmieniacz = new Zmieniacz();
+        int wartosc2 = 7;
+        zmieniacz.zmienWartosc(wartosc2);
+        System.out.println("Wartość zmiennej po użyciu Zmieniacz: " + wartosc2);
 
-        osoba1.zmienImie("Alicja");
-        osoba1.przedstawSie();
-
-        osoba1.zamienImionami(osoba2);
-        osoba1.przedstawSie();
-        osoba2.przedstawSie();
+        // Krok 4
+        Licznik licznik3 = new Licznik();
+        zmieniacz.zmienObiekt(licznik3);
+        System.out.println("Wartość pola liczba obiektu Licznik po użyciu Zmieniacz: " + licznik3.liczba);
     }
 }
