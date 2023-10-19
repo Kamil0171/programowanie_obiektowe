@@ -1,32 +1,41 @@
-public class Car {
-    String brand;
-    String model;
-    int speed;
 
-    public Car(String brand, String model) {
-        this.brand = brand;
-        this.model = model;
-        this.speed = 0; // Początkowa prędkość wynosi 0.
+public class Time {
+    int hours;
+    int minutes;
+
+    public Time(int hours, int minutes) {
+        this.hours = hours;
+        this.minutes = minutes;
     }
 
-    public void accelerate(int value) {
-        speed += value;
-        System.out.println("Prędkość samochodu " + brand + " " + model + " została zwiększona o " + value + " km/h. Aktualna prędkość: " + speed + " km/h.");
-    }
+    public Time addTime(Time otherTime) {
+        int newHours = this.hours + otherTime.hours;
+        int newMinutes = this.minutes + otherTime.minutes;
 
-    public void decelerate(int value) {
-        if (speed >= value) {
-            speed -= value;
-        } else {
-            speed = 0; // Samochód nie może mieć ujemnej prędkości.
+        if (newMinutes >= 60) {
+            newMinutes -= 60;
+            newHours++;
         }
-        System.out.println("Prędkość samochodu " + brand + " " + model + " została zmniejszona o " + value + " km/h. Aktualna prędkość: " + speed + " km/h.");
+
+        if (newHours >= 24) {
+            newHours -= 24;
+        }
+
+        return new Time(newHours, newMinutes);
+    }
+
+    public String toString() {
+        return String.format("%02d:%02d", hours, minutes);
     }
 
     public static void main(String[] args) {
-        Car myCar = new Car("Toyota", "Camry");
+        Time currentTime = new Time(10, 30);
+        Time additionalTime = new Time(3, 45);
 
-        myCar.accelerate(50); // Zwiększamy prędkość o 50 km/h
-        myCar.decelerate(20); // Zmniejszamy prędkość o 20 km/h
+        Time newTime = currentTime.addTime(additionalTime);
+
+        System.out.println("Aktualny czas: " + currentTime);
+        System.out.println("Czas do dodania: " + additionalTime);
+        System.out.println("Nowy czas: " + newTime);
     }
 }
