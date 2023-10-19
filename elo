@@ -1,49 +1,18 @@
-class Licznik {
-    int liczba;
+public class Dog {
+    String name;
+    String breed;
+    int age;
 
-    void zwieksz(int wartosc) {
-        liczba += wartosc;
+    public void bark() {
+        System.out.println("Hau Hau");
     }
 
-    void dodaj(Licznik innyLicznik) {
-        liczba += innyLicznik.liczba;
-    }
-}
-
-class Zmieniacz {
-    void zmienWartosc(int wartosc) {
-        wartosc = 42; // Zmiana wartości argumentu
-    }
-
-    void zmienObiekt(Licznik licznik) {
-        licznik.liczba = 99; // Zmiana wartości pola liczba obiektu Licznik
-    }
-}
-
-public class Main {
     public static void main(String[] args) {
-        // Krok 1
-        Licznik licznik1 = new Licznik();
-        int wartosc1 = 5;
-        licznik1.zwieksz(wartosc1);
-        System.out.println("Wartość licznika1: " + licznik1.liczba);
+        Dog myDog = new Dog();
+        myDog.name = "Buddy";
+        myDog.breed = "Labrador";
+        myDog.age = 3;
 
-        // Krok 2
-        Licznik licznik2 = new Licznik();
-        licznik2.liczba = 10;
-        licznik1.dodaj(licznik2);
-        System.out.println("Wartość licznika1 po dodaniu licznika2: " + licznik1.liczba);
-        System.out.println("Wartość licznika2 po dodaniu do licznika1: " + licznik2.liczba);
-
-        // Krok 3
-        Zmieniacz zmieniacz = new Zmieniacz();
-        int wartosc2 = 7;
-        zmieniacz.zmienWartosc(wartosc2);
-        System.out.println("Wartość zmiennej po użyciu Zmieniacz: " + wartosc2);
-
-        // Krok 4
-        Licznik licznik3 = new Licznik();
-        zmieniacz.zmienObiekt(licznik3);
-        System.out.println("Wartość pola liczba obiektu Licznik po użyciu Zmieniacz: " + licznik3.liczba);
+        myDog.bark(); // Wywołanie metody bark() na obiekcie myDog
     }
 }
