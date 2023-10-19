@@ -142,4 +142,54 @@ Dodaj do klasy Licznik metodę dodaj, która przyjmuje inny obiekt Licznik i dod
 Stwórz klasę Zmieniacz, która posiada metodę zmienWartosc, która jako argument przyjmuje typ int. Wewnątrz metody zmień wartość argumentu na inną. W klasie Main utwórz zmienną int, a następnie przekaż ją do metody zmienWartosc i sprawdź, czy wartość zmiennej się zmieniła.
 Dodaj do klasy Zmieniacz metodę zmienObiekt, która jako argument przyjmuje obiekt Licznik. Wewnątrz metody zmień wartość pola liczba obiektu Licznik na inną. W klasie Main utwórz obiekt Licznik, a następnie przekaż go do metody zmienObiekt i sprawdź, czy wartość pola liczba obiektu się zmieniła.
 
+class Licznik 
+{
+    int liczba;
+    void zwieksz(int wartosc) 
+    {
+        liczba += wartosc;
+    }
+    void dodaj(Licznik innyLicznik) 
+    {
+        liczba += innyLicznik.liczba;
+    }
+}
+class Zmieniacz 
+{
+    void zmienWartosc(int wartosc)
+    {
+        wartosc = 42;
+    }
+    void zmienObiekt(Licznik licznik) 
+    {
+        licznik.liczba = 99;
+    }
+}
+
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        Licznik licznik1 = new Licznik();
+        int wartosc1 = 5;
+        licznik1.zwieksz(wartosc1);
+        System.out.println("Wartość licznika1: " + licznik1.liczba);
+        
+        Licznik licznik2 = new Licznik();
+        licznik2.liczba = 10;
+        licznik1.dodaj(licznik2);
+        System.out.println("Wartość licznika1 po dodaniu licznika2: " + licznik1.liczba);
+        System.out.println("Wartość licznika2 po dodaniu do licznika1: " + licznik2.liczba);
+        
+        Zmieniacz zmieniacz = new Zmieniacz();
+        int wartosc2 = 7;
+        zmieniacz.zmienWartosc(wartosc2);
+        System.out.println("Wartość zmiennej po użyciu Zmieniacz: " + wartosc2);
+        
+        Licznik licznik3 = new Licznik();
+        zmieniacz.zmienObiekt(licznik3);
+        System.out.println("Wartość pola liczba obiektu Licznik po użyciu Zmieniacz: " + licznik3.liczba);
+    }
+}
+
 Zad 8. Utwórz klasę Osoba z publicznym polem imie oraz prywatnym polem haslo. Zobacz jak różne modyfikatory dostępu wpływają na dostęp do tych pól z innej klasy.
