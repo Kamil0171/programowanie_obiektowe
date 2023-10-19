@@ -51,6 +51,43 @@ public class Main
 
 Zad 2. Stwórz klasę Car z polami: brand, model i speed. Napisz metody accelerate(int value) i decelerate(int value), które odpowiednio zwiększają i zmniejszają prędkość o podaną wartość. Stwórz przypadek testowy, aby wywołać każdą metodę co najmniej jeden raz.
 
+public class Car
+{
+    String brand;
+    String model;
+    int speed;
+    public Car(String brand, String model)
+    {
+        this.brand = brand;
+        this.model = model;
+        this.speed = 0;
+    }
+    public void accelerate(int value)
+    {
+        speed += value;
+        System.out.println("Prędkość samochodu " + brand + " " + model + " została zwiększona o " + value + " km/h. Aktualna prędkość: " + speed + " km/h.");
+    }
+    public void decelerate(int value)
+    {
+        if (speed >= value) {
+            speed -= value;
+        } else {
+            speed = 0;
+        }
+        System.out.println("Prędkość samochodu " + brand + " " + model + " została zmniejszona o " + value + " km/h. Aktualna prędkość: " + speed + " km/h.");
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Car myCar = new Car("Toyota", "Camry");
+        myCar.accelerate(50);
+        myCar.decelerate(20);
+    }
+}
+
 Zad 3. Stwórz klasę Time z polami: hours i minutes. Napisz metodę addTime(Time otherTime), która dodaje do bieżącego czasu czas podany jako argument i zwraca nowy obiekt klasy Time. Zadbaj o to, aby minuty i godziny nie przekraczały odpowiednio 59 i 23. Stwórz przypadek testowy, aby wywołać metodę co najmniej jeden raz.
 
 Zad 4. Wykonaj po kolei dwa podpunkty:
