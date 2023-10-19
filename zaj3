@@ -90,6 +90,53 @@ public class Main
 
 Zad 3. Stwórz klasę Time z polami: hours i minutes. Napisz metodę addTime(Time otherTime), która dodaje do bieżącego czasu czas podany jako argument i zwraca nowy obiekt klasy Time. Zadbaj o to, aby minuty i godziny nie przekraczały odpowiednio 59 i 23. Stwórz przypadek testowy, aby wywołać metodę co najmniej jeden raz.
 
+public class Time
+{
+    int hours;
+    int minutes;
+    public Time(int hours, int minutes)
+    {
+        this.hours = hours;
+        this.minutes = minutes;
+    }
+    public Time addTime(Time otherTime)
+    {
+        int newHours = this.hours + otherTime.hours;
+        int newMinutes = this.minutes + otherTime.minutes;
+
+        if (newMinutes >= 60)
+        {
+            newMinutes -= 60;
+            newHours++;
+        }
+        if (newHours >= 24)
+        {
+            newHours -= 24;
+        }
+        return new Time(newHours, newMinutes);
+    }
+
+    public String toString()
+    {
+        return String.format("%02d:%02d", hours, minutes);
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Time currentTime = new Time(10, 30);
+        Time additionalTime = new Time(3, 45);
+
+        Time newTime = currentTime.addTime(additionalTime);
+
+        System.out.println("Aktualny czas: " + currentTime);
+        System.out.println("Czas do dodania: " + additionalTime);
+        System.out.println("Nowy czas: " + newTime);
+    }
+}
+
 Zad 4. Wykonaj po kolei dwa podpunkty:
 A. Stwórz klasę Car zawierającą pole brand. W klasie Main, utwórz obiekt klasy Car, przypisz mu wartość null i spróbuj odwołać się do pola brand. Jaki jest wynik?
 B. Zmodyfikuj kod z podpunktu A tak, aby sprawdzić, czy obiekt Car jest null przed odwołaniem się do pola brand. Jaki jest wynik?
