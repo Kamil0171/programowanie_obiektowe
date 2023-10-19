@@ -65,6 +65,23 @@ public class Main
 
 Zad 5. Stwórz obiekt klasy Dog z zadania pierwszego, i ustaw jego wartość na null. Spróbuj wykonać metodę  bark() na tym obiekcie
 
+public class Dog
+{
+    public void bark()
+    {
+        System.out.println("Woof! Woof!");
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Dog dog = null;
+        dog.bark();
+    }
+}
+
 Zad 6. Wykonaj kolejno poniższe czynności:
 Stwórz klasę Czlowiek z polem imie. Dodaj do klasy metodę przedstawSie, która wyświetli wiadomość “Cześć, jestem” i imię osoby. W klasie Main, utwórz obiekt Czlowiek i wywołaj na nim metodę przedstawSie. Czy musisz użyć słowo kluczowe this w implementacji metody?
 Dodaj do klasy Czlowiek metodę powiedzCzesc, która jako argument przyjmuje inny obiekt klasy Czlowiek i wyświetla wiadomość “Cześć,” i imię drugiego człowieka. Przeanalizuj działanie.
