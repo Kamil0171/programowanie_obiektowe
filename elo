@@ -1,10 +1,42 @@
-public class Dog {
-    public void bark() {
-        System.out.println("Woof! Woof!");
+public class Czlowiek {
+    String imie;
+
+    public Czlowiek(String imie) {
+        this.imie = imie;
+    }
+
+    public void przedstawSie() {
+        System.out.println("Cześć, jestem " + imie);
+    }
+
+    public void powiedzCzesc(Czlowiek innyCzlowiek) {
+        System.out.println("Cześć, " + innyCzlowiek.imie);
+    }
+
+    public void zmienImie(String noweImie) {
+        imie = noweImie;
+    }
+
+    public void zamienImionami(Czlowiek innyCzlowiek) {
+        String tempImie = this.imie;
+        this.imie = innyCzlowiek.imie;
+        innyCzlowiek.imie = tempImie;
     }
 
     public static void main(String[] args) {
-        Dog dog = null;
-        dog.bark(); // To spowoduje wyjątek NullPointerException
+        Czlowiek osoba1 = new Czlowiek("Anna");
+        Czlowiek osoba2 = new Czlowiek("Bartek");
+
+        osoba1.przedstawSie();
+        osoba2.przedstawSie();
+
+        osoba1.powiedzCzesc(osoba2);
+
+        osoba1.zmienImie("Alicja");
+        osoba1.przedstawSie();
+
+        osoba1.zamienImionami(osoba2);
+        osoba1.przedstawSie();
+        osoba2.przedstawSie();
     }
 }
