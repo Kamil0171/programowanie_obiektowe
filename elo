@@ -1,18 +1,32 @@
-public class Dog {
-    String name;
-    String breed;
-    int age;
+public class Car {
+    String brand;
+    String model;
+    int speed;
 
-    public void bark() {
-        System.out.println("Hau Hau");
+    public Car(String brand, String model) {
+        this.brand = brand;
+        this.model = model;
+        this.speed = 0; // Początkowa prędkość wynosi 0.
+    }
+
+    public void accelerate(int value) {
+        speed += value;
+        System.out.println("Prędkość samochodu " + brand + " " + model + " została zwiększona o " + value + " km/h. Aktualna prędkość: " + speed + " km/h.");
+    }
+
+    public void decelerate(int value) {
+        if (speed >= value) {
+            speed -= value;
+        } else {
+            speed = 0; // Samochód nie może mieć ujemnej prędkości.
+        }
+        System.out.println("Prędkość samochodu " + brand + " " + model + " została zmniejszona o " + value + " km/h. Aktualna prędkość: " + speed + " km/h.");
     }
 
     public static void main(String[] args) {
-        Dog myDog = new Dog();
-        myDog.name = "Buddy";
-        myDog.breed = "Labrador";
-        myDog.age = 3;
+        Car myCar = new Car("Toyota", "Camry");
 
-        myDog.bark(); // Wywołanie metody bark() na obiekcie myDog
+        myCar.accelerate(50); // Zwiększamy prędkość o 50 km/h
+        myCar.decelerate(20); // Zmniejszamy prędkość o 20 km/h
     }
 }
