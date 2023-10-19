@@ -298,5 +298,3 @@ public class Main
         System.out.println("Wartość pola liczba obiektu Licznik po użyciu Zmieniacz: " + licznik3.liczba);
     }
 }
-
-Zad 8. Utwórz klasę Osoba z publicznym polem imie oraz prywatnym polem haslo. Zobacz jak różne modyfikatory dostępu wpływają na dostęp do tych pól z innej klasy.
