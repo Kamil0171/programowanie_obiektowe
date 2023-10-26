@@ -40,3 +40,37 @@ Zad 3. Napisz klasę Osoba, która będzie miała pola: imie, nazwisko i wiek. Z
 Zad 4. Zaprojektuj klasę Kwadrat, która posiada pole bok oraz konstruktor, który umożliwia ustawienie wartości tego pola. Następnie napisz drugi konstruktor, który nie przyjmuje żadnych argumentów, a jedynie wywołuje pierwszy konstruktor z wartością domyślną 1
 
 Zad 5. Napisz klasę Student, która ma pola: imie, nazwisko i kierunekStudiow. Zdefiniuj w niej dwa konstruktory, jeden przyjmujący wszystkie trzy parametry, a drugi tylko imię i nazwisko. Drugi konstruktor powinien wywoływać pierwszy, przekazując mu domyślną wartość kierunku studiów jako nieznany
+
+public class Student
+{
+    private String imie;
+    private String nazwisko;
+    private String kierunekStudiow;
+    public Student(String imie, String nazwisko, String kierunekStudiow)
+    {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.kierunekStudiow = kierunekStudiow;
+    }
+    public Student(String imie, String nazwisko)
+    {
+        this(imie, nazwisko, "nieznany");
+    }
+    public String Info()
+    {
+        return "Imie: "+imie+", Nazwisko: "+nazwisko+", Kierunek studiow: "+kierunekStudiow;
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Student s1 = new Student("Michal", "Baron", "Informatyka");
+        System.out.println(s1.Info());
+        Student s2 = new Student("Maja", "Stasko");
+        System.out.println(s2.Info());
+    }
+}
+
+Zad 6. Stwórz klasę Osoba. Klasa powinna zawierać pole imienne oraz statyczne pole licznik. Zadaniem jest zwiększanie wartości licznik za każdym razem, gdy tworzona jest nowa instancja klasy Osoba. Dodaj metodę, która zwróci wartość licznik. Stwórz przypadek testowy.
