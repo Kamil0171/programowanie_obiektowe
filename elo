@@ -1,22 +1,35 @@
-public class Produkt {
-    private static final int MAX_PRODUKTOW = 100; // Pole MAX_PRODUKTOW jest final
-    private static int liczbaProduktow = 0;
+public class Singleton {
+    // Prywatne pole statyczne do przechowywania jednej instancji Singletona
+    private static Singleton instance;
 
-    // Konstruktor produktu
-    public Produkt() {
-        if (liczbaProduktow < MAX_PRODUKTOW) {
-            liczbaProduktow++;
-        } else {
-            System.out.println("Osiągnięto maksymalną liczbę produktów.");
+    // Prywatny konstruktor, aby uniemożliwić tworzenie innych instancji
+    private Singleton() {
+        // Inicjalizacja instancji
+    }
+
+    // Publiczna statyczna metoda do pobierania instancji Singletona
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
         }
+        return instance;
+    }
+
+    public void someMethod() {
+        // Metoda klasy Singleton
+        System.out.println("Metoda klasy Singleton została wywołana.");
     }
 
     public static void main(String[] args) {
-        // Tworzenie produktów
-        for (int i = 0; i < 110; i++) {
-            new Produkt();
-        }
+        // Przykład użycia Singletona
+        Singleton singleton1 = Singleton.getInstance();
+        Singleton singleton2 = Singleton.getInstance();
 
-        System.out.println("Liczba utworzonych produktów: " + Produkt.liczbaProduktow);
+        // Porównanie czy obie referencje wskazują na tę samą instancję
+        System.out.println("Czy singleton1 i singleton2 to ta sama instancja? " + (singleton1 == singleton2));
+
+        // Wywołanie metody klasy Singleton
+        singleton1.someMethod();
+        singleton2.someMethod();
     }
 }
