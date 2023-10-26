@@ -1,25 +1,33 @@
-public class Osoba {
-    private String imie;
-    private static int licznik = 0; // Pole statyczne licznik
+public class Samochod {
+    private String marka;
+    private String model;
+    private int rokProdukcji;
 
-    // Konstruktor przyjmujący imię
-    public Osoba(String imie) {
-        this.imie = imie;
-        licznik++; // Inkrementacja licznika przy tworzeniu nowej instancji Osoba
+    // Konstruktor domyślny
+    public Samochod() {
+        // Pusta implementacja konstruktora domyślnego
     }
 
-    // Metoda do pobierania wartości licznika
-    public static int pobierzLicznik() {
-        return licznik;
+    // Konstruktor przyjmujący markę i model
+    public Samochod(String marka, String model) {
+        this.marka = marka;
+        this.model = model;
+    }
+
+    // Konstruktor przyjmujący markę, model i rok produkcji
+    public Samochod(String marka, String model, int rokProdukcji) {
+        this(marka, model); // Wywołanie drugiego konstruktora
+        this.rokProdukcji = rokProdukcji;
     }
 
     public static void main(String[] args) {
-        // Tworzenie kilku instancji klasy Osoba
-        Osoba osoba1 = new Osoba("Jan");
-        Osoba osoba2 = new Osoba("Anna");
-        Osoba osoba3 = new Osoba("Marek");
+        Samochod samochod1 = new Samochod();
+        Samochod samochod2 = new Samochod("Toyota", "Camry");
+        Samochod samochod3 = new Samochod("Ford", "Focus", 2022);
 
-        // Wyświetlenie wartości licznika
-        System.out.println("Liczba utworzonych instancji Osoba: " + Osoba.pobierzLicznik());
+        // Wyświetlenie informacji o samochodach
+        System.out.println("Samochod 1: " + samochod1.marka + " " + samochod1.model + " " + samochod1.rokProdukcji);
+        System.out.println("Samochod 2: " + samochod2.marka + " " + samochod2.model + " " + samochod2.rokProdukcji);
+        System.out.println("Samochod 3: " + samochod3.marka + " " + samochod3.model + " " + samochod3.rokProdukcji);
     }
 }
