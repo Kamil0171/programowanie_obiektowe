@@ -74,3 +74,29 @@ public class Main
 }
 
 Zad 6. Stwórz klasę Osoba. Klasa powinna zawierać pole imienne oraz statyczne pole licznik. Zadaniem jest zwiększanie wartości licznik za każdym razem, gdy tworzona jest nowa instancja klasy Osoba. Dodaj metodę, która zwróci wartość licznik. Stwórz przypadek testowy.
+
+public class Osoba
+{
+    private String imie;
+    private static int licznik = 0;
+    public Osoba(String imie)
+    {
+        this.imie = imie;
+        licznik++;
+    }
+    public static int pobierzLicznik()
+    {
+        return licznik;
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Osoba o1 = new Osoba("Jan");
+        Osoba o2 = new Osoba("Anna");
+        Osoba o3 = new Osoba("Marek");
+        System.out.println("Liczba utworzonych instancji Osoba: " + Osoba.pobierzLicznik());
+    }
+}
