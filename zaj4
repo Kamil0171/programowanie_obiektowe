@@ -248,4 +248,30 @@ public class Main
 
 Zad 9. Stwórz klasę Produkt, która zawiera pole statyczne liczbaProduktow oraz pole statyczne MAX_PRODUKTOW. Pole liczbaProduktow będzie służyć do zliczania ilości utworzonych produktów, a MAX_PRODUKTOW do ograniczenia ich liczby. Oznacz tylko jedno z tych pól słowem kluczowym final i zastanów się nad konsekwencjami tego wyboru.
 
+public class Produkt 
+{
+    private static final int MAX_PRODUKTOW = 100; 
+    private static int liczbaProduktow = 0;
+    public Produkt() {
+        if (liczbaProduktow < MAX_PRODUKTOW) 
+        {
+            liczbaProduktow++;
+        } else {
+            System.out.println("Osiągnięto maksymalną liczbę produktów.");
+        }
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        for (int i = 0; i < 110; i++)
+        {
+            new Produkt();
+        }
+        System.out.println("Liczba utworzonych produktów: " + Produkt.liczbaProduktow);
+    }
+}
+
 Zad 10. Stwórz klasę Singleton, która używa pola statycznego do przechowywania jednej i tylko jednej instancji tej klasy. Klasa powinna zawierać prywatny konstruktor oraz publiczną statyczną metodę getInstance(), która zwraca jedyną instancję klasy Singleton. Stwórz przypadek testowy.
