@@ -190,6 +190,19 @@ public class Main
 
 Zad 7. Stwórz klasę Matematyka, która posiada pole statyczne PI, które przechowuje przybliżoną wartość liczby . Upewnij się, że wartość tego pola jest niemutowalna. Stwórz przypadek testowy.
 
+public class Matematyka
+{
+    public static final double PI = 3.14159265359;
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Wartość liczby PI: " + Matematyka.PI);
+    }
+}
+
 Zad 8. Stwórz klasę Kalkulator, która posiada podstawowe metody matematyczne: dodawanie, odejmowanie, mnożenie i dzielenie. Zaimplementuj te metody jako metody statyczne. Utwórz drugą klasę, w której przetestujesz te metody bez tworzenia instancji klasy Kalkulator.
 
 Zad 9. Stwórz klasę Produkt, która zawiera pole statyczne liczbaProduktow oraz pole statyczne MAX_PRODUKTOW. Pole liczbaProduktow będzie służyć do zliczania ilości utworzonych produktów, a MAX_PRODUKTOW do ograniczenia ich liczby. Oznacz tylko jedno z tych pól słowem kluczowym final i zastanów się nad konsekwencjami tego wyboru.
