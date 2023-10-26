@@ -1,39 +1,22 @@
-public class Kalkulator {
-    // Metoda statyczna do dodawania
-    public static double dodawanie(double a, double b) {
-        return a + b;
-    }
+public class Produkt {
+    private static int liczbaProduktow = 0;
+    private static final int MAX_PRODUKTOW = 100; // Pole MAX_PRODUKTOW jest final
 
-    // Metoda statyczna do odejmowania
-    public static double odejmowanie(double a, double b) {
-        return a - b;
-    }
-
-    // Metoda statyczna do mnożenia
-    public static double mnozenie(double a, double b) {
-        return a * b;
-    }
-
-    // Metoda statyczna do dzielenia
-    public static double dzielenie(double a, double b) {
-        if (b != 0) {
-            return a / b;
+    // Konstruktor produktu
+    public Produkt() {
+        if (liczbaProduktow < MAX_PRODUKTOW) {
+            liczbaProduktow++;
         } else {
-            System.out.println("Dzielenie przez zero!");
-            return Double.NaN;
+            System.out.println("Osiągnięto maksymalną liczbę produktów.");
         }
     }
-}
 
-public class TestKalkulatora {
     public static void main(String[] args) {
-        // Testowanie metod klasy Kalkulator bez tworzenia instancji
-        double a = 10.0;
-        double b = 5.0;
+        // Tworzenie produktów
+        for (int i = 0; i < 110; i++) {
+            new Produkt();
+        }
 
-        System.out.println("Dodawanie: " + Kalkulator.dodawanie(a, b));
-        System.out.println("Odejmowanie: " + Kalkulator.odejmowanie(a, b));
-        System.out.println("Mnożenie: " + Kalkulator.mnozenie(a, b));
-        System.out.println("Dzielenie: " + Kalkulator.dzielenie(a, b));
+        System.out.println("Liczba utworzonych produktów: " + Produkt.liczbaProduktow);
     }
 }
