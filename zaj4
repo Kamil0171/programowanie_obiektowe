@@ -102,6 +102,30 @@ public class Main
 
 Zad 4. Zaprojektuj klasę Kwadrat, która posiada pole bok oraz konstruktor, który umożliwia ustawienie wartości tego pola. Następnie napisz drugi konstruktor, który nie przyjmuje żadnych argumentów, a jedynie wywołuje pierwszy konstruktor z wartością domyślną 1
 
+public class Kwadrat
+{
+    private double bok;
+    public Kwadrat(double bok)
+    {
+        this.bok = bok;
+    }
+    public Kwadrat()
+    {
+        this(1.0);
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Kwadrat kwadrat1 = new Kwadrat(5.0);
+        Kwadrat kwadrat2 = new Kwadrat();
+        System.out.println("Kwadrat 1: Bok = " + kwadrat1.bok);
+        System.out.println("Kwadrat 2: Bok = " + kwadrat2.bok);
+    }
+}
+
 Zad 5. Napisz klasę Student, która ma pola: imie, nazwisko i kierunekStudiow. Zdefiniuj w niej dwa konstruktory, jeden przyjmujący wszystkie trzy parametry, a drugi tylko imię i nazwisko. Drugi konstruktor powinien wywoływać pierwszy, przekazując mu domyślną wartość kierunku studiów jako nieznany
 
 public class Student
