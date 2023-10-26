@@ -1,6 +1,6 @@
 public class Produkt {
-    private static int liczbaProduktow = 0;
     private static final int MAX_PRODUKTOW = 100; // Pole MAX_PRODUKTOW jest final
+    private static int liczbaProduktow = 0;
 
     // Konstruktor produktu
     public Produkt() {
