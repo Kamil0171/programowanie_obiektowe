@@ -1,31 +1,25 @@
-
-public class Student {
+public class Osoba {
     private String imie;
-    private String nazwisko;
-    private String kierunekStudiow;
+    private static int licznik = 0; // Pole statyczne licznik
 
-    // Konstruktor przyjmujący wszystkie trzy parametry
-    public Student(String imie, String nazwisko, String kierunekStudiow) {
+    // Konstruktor przyjmujący imię
+    public Osoba(String imie) {
         this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.kierunekStudiow = kierunekStudiow;
+        licznik++; // Inkrementacja licznika przy tworzeniu nowej instancji Osoba
     }
 
-    // Konstruktor przyjmujący tylko imię i nazwisko
-    public Student(String imie, String nazwisko) {
-        this(imie, nazwisko, "Nieznany"); // Wywołanie pierwszego konstruktora z domyślną wartością "Nieznany" dla kierunku studiów
-    }
-
-    // Metoda do pobierania informacji o studencie
-    public String getInfo() {
-        return "Imię: " + imie + ", Nazwisko: " + nazwisko + ", Kierunek studiów: " + kierunekStudiow;
+    // Metoda do pobierania wartości licznika
+    public static int pobierzLicznik() {
+        return licznik;
     }
 
     public static void main(String[] args) {
-        Student student1 = new Student("Jan", "Kowalski", "Informatyka");
-        Student student2 = new Student("Anna", "Nowak");
+        // Tworzenie kilku instancji klasy Osoba
+        Osoba osoba1 = new Osoba("Jan");
+        Osoba osoba2 = new Osoba("Anna");
+        Osoba osoba3 = new Osoba("Marek");
 
-        System.out.println(student1.getInfo());
-        System.out.println(student2.getInfo());
+        // Wyświetlenie wartości licznika
+        System.out.println("Liczba utworzonych instancji Osoba: " + Osoba.pobierzLicznik());
     }
 }
