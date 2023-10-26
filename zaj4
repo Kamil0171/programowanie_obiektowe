@@ -205,6 +205,47 @@ public class Main
 
 Zad 8. Stwórz klasę Kalkulator, która posiada podstawowe metody matematyczne: dodawanie, odejmowanie, mnożenie i dzielenie. Zaimplementuj te metody jako metody statyczne. Utwórz drugą klasę, w której przetestujesz te metody bez tworzenia instancji klasy Kalkulator.
 
+public class Kalkulator
+{
+    public static double dodawanie(double a, double b)
+    {
+        return a + b;
+    }
+    public static double odejmowanie(double a, double b)
+    {
+        return a - b;
+    }
+    public static double mnozenie(double a, double b)
+    {
+        return a * b;
+    }
+    public static double dzielenie(double a, double b)
+    {
+        if (b != 0)
+        {
+            return a / b;
+        }
+        else
+        {
+            System.out.println("Nie mozna przelic przez zero");
+            return Double.NaN;
+        }
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        double a = 10.0;
+        double b = 5.0;
+        System.out.println("Dodawanie: " + Kalkulator.dodawanie(a, b));
+        System.out.println("Odejmowanie: " + Kalkulator.odejmowanie(a, b));
+        System.out.println("Mnozenie: " + Kalkulator.mnozenie(a, b));
+        System.out.println("Dzielenie: " + Kalkulator.dzielenie(a, b));
+    }
+}
+
 Zad 9. Stwórz klasę Produkt, która zawiera pole statyczne liczbaProduktow oraz pole statyczne MAX_PRODUKTOW. Pole liczbaProduktow będzie służyć do zliczania ilości utworzonych produktów, a MAX_PRODUKTOW do ograniczenia ich liczby. Oznacz tylko jedno z tych pól słowem kluczowym final i zastanów się nad konsekwencjami tego wyboru.
 
 Zad 10. Stwórz klasę Singleton, która używa pola statycznego do przechowywania jednej i tylko jednej instancji tej klasy. Klasa powinna zawierać prywatny konstruktor oraz publiczną statyczną metodę getInstance(), która zwraca jedyną instancję klasy Singleton. Stwórz przypadek testowy.
