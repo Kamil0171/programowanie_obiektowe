@@ -1,33 +1,25 @@
-public class Samochod {
-    private String marka;
-    private String model;
-    private int rokProdukcji;
+public class Osoba {
+    private String imie;
+    private String nazwisko;
+    private int wiek;
 
-    // Konstruktor domyślny
-    public Samochod() {
-        // Pusta implementacja konstruktora domyślnego
+    // Konstruktor przyjmujący wszystkie trzy parametry
+    public Osoba(String imie, String nazwisko, int wiek) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.wiek = wiek;
     }
 
-    // Konstruktor przyjmujący markę i model
-    public Samochod(String marka, String model) {
-        this.marka = marka;
-        this.model = model;
-    }
-
-    // Konstruktor przyjmujący markę, model i rok produkcji
-    public Samochod(String marka, String model, int rokProdukcji) {
-        this(marka, model); // Wywołanie drugiego konstruktora
-        this.rokProdukcji = rokProdukcji;
+    // Konstruktor przyjmujący tylko imię i nazwisko
+    public Osoba(String imie, String nazwisko) {
+        this(imie, nazwisko, 0); // Wywołanie pierwszego konstruktora z domyślną wartością 0 dla wieku
     }
 
     public static void main(String[] args) {
-        Samochod samochod1 = new Samochod();
-        Samochod samochod2 = new Samochod("Toyota", "Camry");
-        Samochod samochod3 = new Samochod("Ford", "Focus", 2022);
+        Osoba osoba1 = new Osoba("Jan", "Kowalski", 30);
+        Osoba osoba2 = new Osoba("Anna", "Nowak");
 
-        // Wyświetlenie informacji o samochodach
-        System.out.println("Samochod 1: " + samochod1.marka + " " + samochod1.model + " " + samochod1.rokProdukcji);
-        System.out.println("Samochod 2: " + samochod2.marka + " " + samochod2.model + " " + samochod2.rokProdukcji);
-        System.out.println("Samochod 3: " + samochod3.marka + " " + samochod3.model + " " + samochod3.rokProdukcji);
+        System.out.println("Osoba 1: Imię: " + osoba1.imie + ", Nazwisko: " + osoba1.nazwisko + ", Wiek: " + osoba1.wiek);
+        System.out.println("Osoba 2: Imię: " + osoba2.imie + ", Nazwisko: " + osoba2.nazwisko + ", Wiek: " + osoba2.wiek);
     }
 }
