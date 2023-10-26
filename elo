@@ -1,8 +1,39 @@
-public class Matematyka {
-    public static final double PI = 3.14159265359; // Pole PI jest niemutowalne (final)
+public class Kalkulator {
+    // Metoda statyczna do dodawania
+    public static double dodawanie(double a, double b) {
+        return a + b;
+    }
 
+    // Metoda statyczna do odejmowania
+    public static double odejmowanie(double a, double b) {
+        return a - b;
+    }
+
+    // Metoda statyczna do mnożenia
+    public static double mnozenie(double a, double b) {
+        return a * b;
+    }
+
+    // Metoda statyczna do dzielenia
+    public static double dzielenie(double a, double b) {
+        if (b != 0) {
+            return a / b;
+        } else {
+            System.out.println("Dzielenie przez zero!");
+            return Double.NaN;
+        }
+    }
+}
+
+public class TestKalkulatora {
     public static void main(String[] args) {
-        // Wyświetlenie wartości PI
-        System.out.println("Wartość liczby PI: " + Matematyka.PI);
+        // Testowanie metod klasy Kalkulator bez tworzenia instancji
+        double a = 10.0;
+        double b = 5.0;
+
+        System.out.println("Dodawanie: " + Kalkulator.dodawanie(a, b));
+        System.out.println("Odejmowanie: " + Kalkulator.odejmowanie(a, b));
+        System.out.println("Mnożenie: " + Kalkulator.mnozenie(a, b));
+        System.out.println("Dzielenie: " + Kalkulator.dzielenie(a, b));
     }
 }
