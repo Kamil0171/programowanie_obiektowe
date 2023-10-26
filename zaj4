@@ -72,6 +72,34 @@ public class Main
 
 Zad 3. Napisz klasę Osoba, która będzie miała pola: imie, nazwisko i wiek. Zdefiniuj w niej dwa konstruktory, jeden przyjmujący wszystkie trzy parametry, a drugi tylko imię i nazwisko. Drugi konstruktor powinien wywołać pierwszy, przekazując mu domyślną wartość wieku jako 0.
 
+public class Osoba
+{
+    private String imie;
+    private String nazwisko;
+    private int wiek;
+    public Osoba(String imie, String nazwisko, int wiek)
+    {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.wiek = wiek;
+    }
+    public Osoba(String imie, String nazwisko)
+    {
+        this(imie, nazwisko, 0);
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Osoba osoba1 = new Osoba("Jan", "Kowalski", 30);
+        Osoba osoba2 = new Osoba("Anna", "Nowak");
+        System.out.println("Osoba 1: Imię: " + osoba1.imie + ", Nazwisko: " + osoba1.nazwisko + ", Wiek: " + osoba1.wiek);
+        System.out.println("Osoba 2: Imię: " + osoba2.imie + ", Nazwisko: " + osoba2.nazwisko + ", Wiek: " + osoba2.wiek);
+    }
+}
+
 Zad 4. Zaprojektuj klasę Kwadrat, która posiada pole bok oraz konstruktor, który umożliwia ustawienie wartości tego pola. Następnie napisz drugi konstruktor, który nie przyjmuje żadnych argumentów, a jedynie wywołuje pierwszy konstruktor z wartością domyślną 1
 
 Zad 5. Napisz klasę Student, która ma pola: imie, nazwisko i kierunekStudiow. Zdefiniuj w niej dwa konstruktory, jeden przyjmujący wszystkie trzy parametry, a drugi tylko imię i nazwisko. Drugi konstruktor powinien wywoływać pierwszy, przekazując mu domyślną wartość kierunku studiów jako nieznany
