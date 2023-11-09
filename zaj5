@@ -75,6 +75,50 @@ Zad 1. Wykonaj kolejno poniższe czynności:
 Stwórz klasę bazową Person z prywatnym polem firstName oraz chronionym polem lastName. Następnie stwórz klasę Employee, która dziedziczy po klasie Person. W klasie Employee próbuj odnieść się do obu pól i zauważ, które z nich są dostępne.
 Na bazie klasy Person z poprzedniego podpunktu, stwórz metody dostępowe (gettery) dla obu pól. W klasie Employee stwórz metodę displayData, która korzysta z tych metod dostępowych, aby wypisać informacje o pracowniku. Zastanów się, dlaczego metody dostępowe są używane do dostępu do prywatnych pól.
 
+public class Person
+{
+    private String firstName;
+    protected String lastName;
+
+    public Person(String firstName, String lastName)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public String getFirstName()
+    {
+        return firstName;
+    }
+
+    public String getLastName()
+    {
+        return lastName;
+    }
+}
+
+class Employee extends Person
+{
+    public Employee(String firstName, String lastName)
+    {
+        super(firstName, lastName);
+    }
+
+    public void displayData()
+    {
+        System.out.println("Employee: " + getFirstName() + " " + getLastName());
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Employee employee = new Employee("Kamil", "Amarasekara");
+        employee.displayData();
+    }
+}
+
 Zad 2. Wykonaj poniższe czynności:
 Zdefiniuj klasę Book, która posiada następujące pola: title, author i numberOfPages.
 Napisz konstruktor, który przyjmuje trzy argumenty i waliduje je przed przypisaniem do odpowiednich pól.
