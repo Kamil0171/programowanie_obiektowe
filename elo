@@ -1,1 +1,44 @@
+// Klasa bazowa Person
+class Person {
+    private String firstName;
+    protected String lastName;
 
+    // Konstruktor
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    // Gettery
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+}
+
+// Klasa Employee dziedzicząca po klasie Person
+class Employee extends Person {
+    // Konstruktor
+    public Employee(String firstName, String lastName) {
+        super(firstName, lastName);
+    }
+
+    // Metoda displayData korzystająca z getterów
+    public void displayData() {
+        System.out.println("Employee: " + getFirstName() + " " + getLastName());
+    }
+}
+
+// Klasa główna
+public class Main {
+    public static void main(String[] args) {
+        // Tworzenie obiektu klasy Employee
+        Employee employee = new Employee("John", "Doe");
+
+        // Wywołanie metody displayData
+        employee.displayData();
+    }
+}
