@@ -129,6 +129,32 @@ Dodaj metodę equals(), która porównuje dwie książki na podstawie ich pól t
 
 Zad 3. Stwórz klasę Tool z chronionym konstruktorem, który przyjmuje nazwę narzędzia. Następnie stwórz klasę potomną Hammer, która dziedziczy po klasie Tool. W klasie Hammer stwórz konstruktor, który korzysta z konstruktora klasy bazowej. Zastanów się, dlaczego używając modyfikatora private dla konstruktora klasy bazowej, taki scenariusz nie byłby możliwy.
 
+public class Tool
+{
+    protected String toolName;
+    protected Tool(String toolName)
+    {
+        this.toolName = toolName;
+    }
+}
+
+class Hammer extends Tool
+{
+    public Hammer(String toolName)
+    {
+        super(toolName);
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Hammer hammer = new Hammer("MocarnyMlot");
+        System.out.println("Tool name: " + hammer.toolName);
+    }
+}
+
 Zad 4. Wykonaj kolejno poniższe czynności:
 Stwórz klasę bazową Pojazd z metodą jedz, która wypisuje “Pojazd jedzie”. Następnie stwórz klasę potomną Samochod, która przesłania metodę jedz tak, by wypisywała “Samochod jedzie”. Utwórz obiekt klasy Samochod i wywołaj jego metodę jedz, aby zaobserwować wynik.
 Na bazie klasy Pojazd z poprzedniego podpunktu, w klasie Samochod, przesłoń metodę jedz tak, by wywoływała oryginalną metodę z klasy bazowej i dodatkowo wypisywała informacje specyficzne dla klasy Samochod. Użyj słowa kluczowego super, aby wywołać metodę z klasy bazowej.
