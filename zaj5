@@ -127,6 +127,49 @@ Pola title i author nie powinny być puste ani równać się null. W przypadku p
 Dodaj metodę toString(), która zwraca informacje o książce w formacie: "Book: [title] by [author], Pages: [numberOfPages].".
 Dodaj metodę equals(), która porównuje dwie książki na podstawie ich pól title, author i numberOfPages
 
+class Book
+{
+    private String title;
+    private String author;
+    private int numberOfPages;
+    public Book(String title, String author, int numberOfPages)
+    {
+        this.numberOfPages = (numberOfPages < 0) ? 1 : numberOfPages;
+        this.title = (title != null && !title.isEmpty()) ? title : "";
+        this.author = (author != null && !author.isEmpty()) ? author : "";
+    }
+
+    public String toString()
+    {
+        return "Book: " + title + " by " + author + ", Pages: " + numberOfPages + ".";
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Book otherBook = (Book) obj;
+        return title.equals(otherBook.title) &&
+                author.equals(otherBook.author) &&
+                numberOfPages == otherBook.numberOfPages;
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Book book1 = new Book("Lalka", "Boleslaw Prus", 321);
+        Book book2 = new Book("Pan Tadeusz", "Adam Mickiewicz", 421);
+
+        System.out.println(book1.toString());
+        System.out.println(book2.toString());
+
+        System.out.println("Are the books equal? " + book1.equals(book2));
+    }
+}
+
 Zad 3. Stwórz klasę Tool z chronionym konstruktorem, który przyjmuje nazwę narzędzia. Następnie stwórz klasę potomną Hammer, która dziedziczy po klasie Tool. W klasie Hammer stwórz konstruktor, który korzysta z konstruktora klasy bazowej. Zastanów się, dlaczego używając modyfikatora private dla konstruktora klasy bazowej, taki scenariusz nie byłby możliwy.
 
 public class Tool
