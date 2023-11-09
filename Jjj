@@ -1,0 +1,48 @@
+class Book {
+    private String title;
+    private String author;
+    private int numberOfPages;
+
+    // Konstruktor z walidacją
+    public Book(String title, String author, int numberOfPages) {
+        // Walidacja liczby stron
+        this.numberOfPages = (numberOfPages < 0) ? 1 : numberOfPages;
+
+        // Walidacja tytułu
+        this.title = (title != null && !title.isEmpty()) ? title : "";
+
+        // Walidacja autora
+        this.author = (author != null && !author.isEmpty()) ? author : "";
+    }
+
+    // Metoda toString
+    public String toString() {
+        return "Book: " + title + " by " + author + ", Pages: " + numberOfPages + ".";
+    }
+
+    // Metoda equals
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Book otherBook = (Book) obj;
+        return title.equals(otherBook.title) &&
+               author.equals(otherBook.author) &&
+               numberOfPages == otherBook.numberOfPages;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Przykład użycia
+        Book book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 200);
+        Book book2 = new Book("To Kill a Mockingbird", "Harper Lee", -50);
+
+        // Wyświetlenie informacji o książkach
+        System.out.println(book1.toString());
+        System.out.println(book2.toString());
+
+        // Porównanie dwóch książek
+        System.out.println("Are the books equal? " + book1.equals(book2));
+    }
+}
