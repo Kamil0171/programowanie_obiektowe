@@ -210,20 +210,13 @@ public class Pojazd
     }
 }
 
-/*class Samochod extends Pojazd
-{
-    @Override
-    public void jedz()
-    {
-        System.out.println("Samochod jedzie");
-    }
-}*/
 
 class Samochod extends Pojazd
 {
     @Override
     public void jedz()
     {
+        super.jedz();
         System.out.println("Specyficznie");
     }
 }
