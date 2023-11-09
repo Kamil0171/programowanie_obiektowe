@@ -133,6 +133,41 @@ Zad 4. Wykonaj kolejno poniższe czynności:
 Stwórz klasę bazową Pojazd z metodą jedz, która wypisuje “Pojazd jedzie”. Następnie stwórz klasę potomną Samochod, która przesłania metodę jedz tak, by wypisywała “Samochod jedzie”. Utwórz obiekt klasy Samochod i wywołaj jego metodę jedz, aby zaobserwować wynik.
 Na bazie klasy Pojazd z poprzedniego podpunktu, w klasie Samochod, przesłoń metodę jedz tak, by wywoływała oryginalną metodę z klasy bazowej i dodatkowo wypisywała informacje specyficzne dla klasy Samochod. Użyj słowa kluczowego super, aby wywołać metodę z klasy bazowej.
 
+public class Pojazd
+{
+    public void jedz()
+    {
+        System.out.println("Pojazd jedzie");
+    }
+}
+
+/*class Samochod extends Pojazd
+{
+    @Override
+    public void jedz()
+    {
+        System.out.println("Samochod jedzie");
+    }
+}*/
+
+class Samochod extends Pojazd
+{
+    @Override
+    public void jedz()
+    {
+        System.out.println("Specyficznie");
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Samochod samochod = new Samochod();
+        samochod.jedz();
+    }
+}
+
 Zad 5. Stwórz klasę Kalkulator z metodą dodaj, która przyjmuje dwa argumenty typu int i zwraca ich sumę. Następnie stwórz klasę potomną KalkulatorRozszerzony, która przesłania metodę dodaj w taki sposób, by przyjmowała trzy argumenty typu int i zwracała ich sumę. Zastanów się, czy to faktycznie przesłanianie metody, czy może coś innego.
 
 Zad 6. Stwórz klasę bazową Komputer z publiczną metodą uruchom, która wypisuje “Komputer uruchomiony”. Stwórz klasę potomną Laptop, która próbuje przesłonić metodę uruchom, ale z modyfikatorem dostępu protected. Spróbuj skompilować kod i zastanów się, dlaczego występują pewne ograniczenia w przesłanianiu metod pod względem modyfikatorów dostępu.
