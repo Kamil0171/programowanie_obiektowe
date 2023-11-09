@@ -210,7 +210,6 @@ public class Pojazd
     }
 }
 
-
 class Samochod extends Pojazd
 {
     @Override
