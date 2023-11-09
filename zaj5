@@ -1,1 +1,96 @@
+Zad 0.
 
+public class Animal
+{
+    public String name;
+    public Animal()
+    {
+        name = "default";
+    }
+    public Animal(String name)
+    {
+        this.name = name;
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.name;
+    }
+
+    @Override
+    public boolean equals(Object other)
+    {
+        if(other instanceof Animal temp)
+        {
+            return this.name.equals(temp.name);
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public void makeNoise()
+    {
+        System.out.println("Odglosy zwierzecia");
+    }
+}
+
+class Cat extends Animal
+{
+    public Cat()
+    {
+
+    }
+    public Cat(String name)
+    {
+        super(name);
+    }
+
+    @Override
+    public void makeNoise()
+    {
+        System.out.println("Miau miau");
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Animal animal = new Animal("Zebra");
+        Animal animal2 = new Animal("Zebra");
+        System.out.println(animal == animal2);
+        System.out.println(animal.equals(animal2));
+        animal.makeNoise();
+        Cat kot = new Cat("Filemon");
+        System.out.println(kot.name);
+        kot.makeNoise();
+        Animal animal3 = new Cat("Bonifacy");
+        animal3.makeNoise();
+    }
+}
+
+Zad 1. Wykonaj kolejno poniższe czynności:
+Stwórz klasę bazową Person z prywatnym polem firstName oraz chronionym polem lastName. Następnie stwórz klasę Employee, która dziedziczy po klasie Person. W klasie Employee próbuj odnieść się do obu pól i zauważ, które z nich są dostępne.
+Na bazie klasy Person z poprzedniego podpunktu, stwórz metody dostępowe (gettery) dla obu pól. W klasie Employee stwórz metodę displayData, która korzysta z tych metod dostępowych, aby wypisać informacje o pracowniku. Zastanów się, dlaczego metody dostępowe są używane do dostępu do prywatnych pól.
+
+Zad 2. Wykonaj poniższe czynności:
+Zdefiniuj klasę Book, która posiada następujące pola: title, author i numberOfPages.
+Napisz konstruktor, który przyjmuje trzy argumenty i waliduje je przed przypisaniem do odpowiednich pól.
+Liczba stron (numberOfPages) nie powinna być ujemna. W przypadku podania wartości ujemnej, ustaw liczbę stron na jedną.
+Pola title i author nie powinny być puste ani równać się null. W przypadku podania pustego napisu lub null, ustaw odpowiednio pusty napis.
+Dodaj metodę toString(), która zwraca informacje o książce w formacie: "Book: [title] by [author], Pages: [numberOfPages].".
+Dodaj metodę equals(), która porównuje dwie książki na podstawie ich pól title, author i numberOfPages
+
+Zad 3. Stwórz klasę Tool z chronionym konstruktorem, który przyjmuje nazwę narzędzia. Następnie stwórz klasę potomną Hammer, która dziedziczy po klasie Tool. W klasie Hammer stwórz konstruktor, który korzysta z konstruktora klasy bazowej. Zastanów się, dlaczego używając modyfikatora private dla konstruktora klasy bazowej, taki scenariusz nie byłby możliwy.
+
+Zad 4. Wykonaj kolejno poniższe czynności:
+Stwórz klasę bazową Pojazd z metodą jedz, która wypisuje “Pojazd jedzie”. Następnie stwórz klasę potomną Samochod, która przesłania metodę jedz tak, by wypisywała “Samochod jedzie”. Utwórz obiekt klasy Samochod i wywołaj jego metodę jedz, aby zaobserwować wynik.
+Na bazie klasy Pojazd z poprzedniego podpunktu, w klasie Samochod, przesłoń metodę jedz tak, by wywoływała oryginalną metodę z klasy bazowej i dodatkowo wypisywała informacje specyficzne dla klasy Samochod. Użyj słowa kluczowego super, aby wywołać metodę z klasy bazowej.
+
+Zad 5. Stwórz klasę Kalkulator z metodą dodaj, która przyjmuje dwa argumenty typu int i zwraca ich sumę. Następnie stwórz klasę potomną KalkulatorRozszerzony, która przesłania metodę dodaj w taki sposób, by przyjmowała trzy argumenty typu int i zwracała ich sumę. Zastanów się, czy to faktycznie przesłanianie metody, czy może coś innego.
+
+Zad 6. Stwórz klasę bazową Komputer z publiczną metodą uruchom, która wypisuje “Komputer uruchomiony”. Stwórz klasę potomną Laptop, która próbuje przesłonić metodę uruchom, ale z modyfikatorem dostępu protected. Spróbuj skompilować kod i zastanów się, dlaczego występują pewne ograniczenia w przesłanianiu metod pod względem modyfikatorów dostępu.
+
+Zad 7. Stwórz trzy klasy: Istota, Człowiek i Programista. Klasa Człowiek powinna dziedziczyć po klasie Istota, a klasa Programista po klasie Człowiek. W każdej z klas dodaj konstruktor, który wypisuje informację o tworzeniu instancji danej klasy. Stwórz instancję klasy Programista i zaobserwuj kolejność wywoływania konstruktorów.
