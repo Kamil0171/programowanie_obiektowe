@@ -56,6 +56,21 @@ public class Main
 
 Zad 4. Stwórz program do obliczenia pola kwadratu. Dane pobierz od użytkownika, wynik wyświetl na standardowym wyjściu.
 
+import javax.sound.midi.Soundbank;
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj dlugosc boku: ");
+        double dlugoscBoku = scanner.nextDouble();  
+        double pole = dlugoscBoku * dlugoscBoku;
+        System.out.println("Pole kwadragu wynpsi: " + pole);
+    }
+}
+
 Zad 5. Napisz program, który przyjmuje trzy liczby całkowite jako argumenty i zwraca największą z nich. Zastosuj instrukcje warunkowe do porównania liczb.
 
 Zad 6. Napisz program, który na podstawie podanego jako argument numeru dnia tygodnia (od 1 do 7) wypisze nazwę tego dnia tygodnia. Dla przykładu, jeżeli użytkownik poda liczbę 1, program powinien wypisać “Poniedziałek”. Jeżeli podana liczba nie jest z zakresu od 1 do 7, program powinien wyświetlić komunikat “Niepoprawny numer dnia tygodnia”.
