@@ -38,6 +38,22 @@ public class Main
 
 Zad 3. Napisz program, który wczytuje ze standardowego wejścia cztery liczby wymierne, a następnie wypisuje ich sumę na standardowym wyjściu.
 
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj cztery liczby wymierne: ");
+        double liczba1 = scanner.nextDouble();
+        double liczba2 = scanner.nextDouble();
+        double liczba3 = scanner.nextDouble();
+        double liczba4 = scanner.nextDouble();
+        System.out.println("Suma czterech liczb: " + (liczba1 + liczba2 + liczba3 + liczba4));
+    }
+}
+
 Zad 4. Stwórz program do obliczenia pola kwadratu. Dane pobierz od użytkownika, wynik wyświetl na standardowym wyjściu.
 
 Zad 5. Napisz program, który przyjmuje trzy liczby całkowite jako argumenty i zwraca największą z nich. Zastosuj instrukcje warunkowe do porównania liczb.
