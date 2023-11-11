@@ -281,4 +281,62 @@ public class Main
 
 Zad 13. Napisz program, który sprawdzi, czy podana liczba jest liczbą Armstronga. Liczba Amstronga to taka, której suma jej cyfr podniesionych do potęgi równiej liczbie cyfr w tej liczbie, jest równa samej liczbie. (Liczba 153 jest liczbą Armstronga)
 
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Podaj liczbę: ");
+        int liczba = scanner.nextInt();
+
+        if (isArmstrong(liczba))
+        {
+            System.out.println(liczba + " jest liczbą Armstronga.");
+        } else
+        {
+            System.out.println(liczba + " nie jest liczbą Armstronga.");
+        }
+    }
+    static boolean isArmstrong(int number)
+    {
+        int originalNumber, remainder, result = 0, n = 0;
+
+        originalNumber = number;
+
+        for (; originalNumber != 0; originalNumber /= 10, ++n);
+
+        originalNumber = number;
+
+        for (; originalNumber != 0; originalNumber /= 10)
+        {
+            remainder = originalNumber % 10;
+            result += Math.pow(remainder, n);
+        }
+        return result == number;
+    }
+}
+
 Zad 14. Napisz program wczytujący kolejne liczby całkowite (różnych znaków) z klawiatury i kończący się gdy ich suma przekroczy 100.
+
+    import java.util.Scanner;
+
+    public class Main
+    {
+        public static void main(String[] args)
+        {
+            Scanner scanner = new Scanner(System.in);
+
+            int suma = 0;
+
+            while (suma <= 100)
+            {
+                System.out.println("Podaj kolejną liczbę całkowitą: ");
+                int liczba = scanner.nextInt();
+                suma += liczba;
+            }
+            System.out.println("Suma przekroczyła 100");
+        }
+    }
