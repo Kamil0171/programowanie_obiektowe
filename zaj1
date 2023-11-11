@@ -144,6 +144,28 @@ public class Main
 
 Zad 7. Napisz program, który będzie sprawdzał, czy podany rok jest rokiem przestępnym. Rok jest przestępny, jeśli jest podzielny przez 4, ale nie jest podzielny przez 100, chyba że jest podzielny przez 400
 
+import javax.sound.midi.Soundbank;
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj rok, zeby zobaczyc czy jest przestepny: ");
+        int rok = scanner.nextInt();
+
+        if((rok % 4 == 0 && rok % 100 != 0) || rok % 400 == 0)
+        {
+            System.out.println("Rok jest przestepny");
+        }
+        else
+        {
+            System.out.println("Rok nie jest przestepny");
+        }
+    }
+}
+
 Zad 8. Napisz program sprawdzający czy podane liczby z klawiatury mogą stanowić poprawna godzinę w formacie 24-godzinnym.
 Przykładowe wejście:
 Podaj godzinę: 22
