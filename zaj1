@@ -20,6 +20,22 @@ public class Main
 
 Zad 2. Napisz program, który wczytuje ze standardowego wejścia dwa łańcuchy znaków, a następnie wypisuje je w kolejnych wierszach na standardowym wyjściu.
 
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj pierwszy lancuch znakow: ");
+        String lancuch1 = scanner.nextLine();
+        System.out.println("Podaj drugi lancuch znakow: ");
+        String lancuch2 = scanner.nextLine();
+        System.out.println("" + lancuch1);
+        System.out.println("" + lancuch2);
+    }
+}
+
 Zad 3. Napisz program, który wczytuje ze standardowego wejścia cztery liczby wymierne, a następnie wypisuje ich sumę na standardowym wyjściu.
 
 Zad 4. Stwórz program do obliczenia pola kwadratu. Dane pobierz od użytkownika, wynik wyświetl na standardowym wyjściu.
