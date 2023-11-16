@@ -1,2 +1,31 @@
 Zad 1. Napisz statyczną metodę mergeArrays, która przyjmuje dwie tablice liczb całkowitych jako argumenty. Funkcja powinna zwrócić nową listę tablicową, która jest połączeniem obu pierwotnych tablic. Na przykład, dla list tablicowych [1, 2, 3] i [4, 5, 6], funkcja powinna zwrócić [1, 2, 3, 4, 5, 6]. Stwórz przypadek testowy.
 
+import java.util.ArrayList;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        int tab1[] = {1,2,3};
+        int tab2[] = {4,5,6};
+
+        ArrayList<Integer> lista = mergeArrays(tab1, tab2);
+        System.out.println(lista);
+    }
+    public static ArrayList<Integer> mergeArrays(int[] tab1, int[] tab2)
+    {
+        ArrayList<Integer> lista = new ArrayList<>();
+
+        for(int i = 0; i < tab1.length; i++)
+        {
+            lista.add(tab1[i]);
+        }
+        for(int i = 0; i < tab2.length; i++)
+        {
+            lista.add(tab2[i]);
+        }
+        return lista;
+    }
+}
+
+Zad 2. Napisz klasę Student, która ma pola: firstName, lastName i fieldOfStudy. Zdefiniuj w niej dwa konstruktory, jeden przyjmujący wszystkie trzy parametry, a drugi tylko firstName i lastName. Drugi konstruktor powinien wywoływać pierwszy, przekazując mu domyślną wartość fieldOfStudy jako unknown.
