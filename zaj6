@@ -58,3 +58,107 @@ public class Main
 }
 
 Zad 3. Stwórz klasę bazową o nazwie Vehicle z polami: brand i model. Klasa ta powinna posiadać konstruktor przyjmujący oba te parametry. Następnie stwórz klasę potomną o nazwie Car, która dziedziczy po klasie Vehicle. Klasa Car powinna posiadać dodatkowe pole numberOfDoors. Stwórz konstruktor dla klasy Car, który przyjmuje wszystkie trzy parametry i korzysta z konstruktora klasy bazowej. Stwórz przypadek testowy.
+
+public class Vehicle
+{
+    String brand;
+    String model;
+    public Vehicle(String brand, String model)
+    {
+        this.brand = brand;
+        this.model = model;
+    }
+}
+class Car extends Vehicle
+{
+    int numberOfDoors;
+    public Car(String brand, String model, int numberOfDoors)
+    {
+        super(brand, model);
+        this.numberOfDoors = numberOfDoors;
+    }
+}
+
+Zad 4. Wykonaj poniższe czynności:
+Zdefiniuj klasę Book, która posiada następujące pola: title, author i numberOfPages.
+Napisz konstruktor, który przyjmuje trzy argumenty i waliduje je przed przypisaniem do odpowiednich pól.
+Liczba stron (numberOfPages) nie powinna być ujemna. W przypadku podania wartości ujemnej, ustaw liczbę stron na jedną.
+Pola title i author nie powinny być puste ani równać się null. W przypadku podania pustego napisu lub null, ustaw odpowiednio pusty napis.
+Dodaj metodę toString(), która zwraca informacje o książce w formacie: "Book: [title] by [author], Pages: [numberOfPages].".
+Dodaj metodę equals(), która porównuje dwie książki na podstawie ich pól title, author i numberOfPages
+
+public class Book
+{
+    public String title;
+    public String autor;
+    public int number;
+
+    @Override
+    public String toString()
+    {
+        return "Book " + title + "by " + autor + "pages: " + number;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(obj instanceof Book temp)
+        {
+            if(this.title.equals(temp.title) &&
+                this.autor.equals(temp.autor) &&
+                this.number == temp.number)
+            {
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return false;
+    }
+}
+
+Zad 5. Wykonaj kolejno poniższe czynności:
+Stwórz klasę bazową Vehicle z metodą drive, która wypisuje “The vehicle is moving.”. Następnie stwórz klasę potomną Car, która nadpisuje metodę drive tak,  by wywoływała oryginalną metodę z klasy bazowej i dodatkowo wypisywała informacje specyficzne dla klasy Car. Użyj słowa kluczowego super, aby wywołać metodę z klasy bazowej.
+
+public class Vehicle
+{
+    String brand;
+    String model;
+    public Vehicle(String brand, String model)
+    {
+        this.brand = brand;
+        this.model = model;
+    }
+
+    public void drive()
+    {
+        System.out.println("The vehicle is moving");
+    }
+}
+class Car extends Vehicle
+{
+    int numberOfDoors;
+
+    public Car(String brand, String model, int numberOfDoors)
+    {
+        super(brand, model);
+        this.numberOfDoors = numberOfDoors;
+    }
+    @Override
+    public void drive()
+    {
+        super.drive();
+        System.out.println("The car is moving");
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Vehicle v = new Car("da", "fsd", 123);
+        v.drive();
+    }
+}
