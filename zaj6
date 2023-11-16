@@ -29,3 +29,32 @@ public class Main
 }
 
 Zad 2. Napisz klasę Student, która ma pola: firstName, lastName i fieldOfStudy. Zdefiniuj w niej dwa konstruktory, jeden przyjmujący wszystkie trzy parametry, a drugi tylko firstName i lastName. Drugi konstruktor powinien wywoływać pierwszy, przekazując mu domyślną wartość fieldOfStudy jako unknown.
+
+public class Student
+{
+    String firstName;
+    String lastName;
+    String fieldOfStudy;
+
+    public Student(String firstName, String lastName, String fieldOfStudy)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fieldOfStudy = fieldOfStudy;
+    }
+    public Student(String firstName, String lastName)
+    {
+        this(firstName, lastName, "unknown");
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Student student = new Student("Kamil", "Amarasekara");
+        System.out.println(student.fieldOfStudy);
+    }
+}
+
+Zad 3. Stwórz klasę bazową o nazwie Vehicle z polami: brand i model. Klasa ta powinna posiadać konstruktor przyjmujący oba te parametry. Następnie stwórz klasę potomną o nazwie Car, która dziedziczy po klasie Vehicle. Klasa Car powinna posiadać dodatkowe pole numberOfDoors. Stwórz konstruktor dla klasy Car, który przyjmuje wszystkie trzy parametry i korzysta z konstruktora klasy bazowej. Stwórz przypadek testowy.
