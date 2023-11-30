@@ -144,3 +144,24 @@ public class Main
 }
 
 Zad 4. Stwórz rekord MusicTrack, który opisuje tytuł, artystę i czas trwania utworu w sekundach. Dodaj konstruktor, który przyjmuje tylko tytuł i artystę, przyjmując domyślną długość utworu jako 180 sekund. Stwórz przypadek testowy.
+
+public record MusicTrack(String title, String artist, int durationInSeconds)
+{
+    public MusicTrack(String title, String artist)
+    {
+        this(title, artist, 180);
+    }
+}
+
+import javax.sound.midi.Soundbank;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        MusicTrack piosenka = new MusicTrack("FEIN", "Travis Scott");
+        System.out.println(piosenka);
+    }
+}
+
+Zad 5. Stwórz rekord Car, który zawiera brand, model i fuelConsumptionPer100km. Dodaj metodę fuelCost(double fuelPrice, double distance), która oblicza i zwraca koszt podróży na podstawie podanej ceny paliwa oraz dystansu. Stwórz przypadek testowy.
