@@ -45,3 +45,102 @@ public class Main
         System.out.println(Integer.toHexString(a1.hashCode()));
     }
 }
+
+==========================================================================================================================
+
+public record Person(String name, int age)
+{
+    public Person
+    {
+        if(age < 0)
+        {
+            age = 0;
+        }
+    }
+    public Person(String name)
+    {
+        this(name, 0);
+    }
+    public static void greet()
+    {
+        System.out.println("Siemanko");
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Person p1 = new Person("Kamil", 20);
+        Person p2 = new Person("Adam", -18);
+        System.out.println(p1);
+        System.out.println(p1.equals(p2));
+        System.out.println(p2.age());
+        p2.greet();
+    }
+}
+
+Zad 1. Stwórz rekord BookDTO, który reprezentuje książkę w sklepie internetowym. Powinien zawierać takie informacje jak title, author, price i yearOfPublication. Następnie stwórz kilka instancji tego rekordu, reprezentujących różne książki.
+
+public record BookDTO(String title, String author, int price, int yearOfPublication)
+{
+
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        BookDTO b1 = new BookDTO("SuperKsiazka", "Kamil", 1000, 2023);
+        BookDTO b2 = new BookDTO("SlabaKsiazka", "Adam", 1, 2022);
+        BookDTO b3 = new BookDTO("Cos", "Jakub", 32, 2010);
+        BookDTO b4 = new BookDTO("Programowanie", "Mateusz", 77, 1999);
+    }
+}
+
+Zad 2. Utwórz rekord Address, który zawiera street, houseNumber, postalCode i city. Następnie, stwórz rekord Person, który oprócz podstawowych informacji o osobie (np. firstName, lastName) zawiera również pole typu Address. Stwórz przypadek testowy.
+
+public record Address(String street, int houseNumber, int postalCode, String city)
+{
+
+}
+
+public record Person2(String firstName, String lastName, Address a)
+{
+
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Address adres = new Address("Warszawska321", 29, 10900, "Olsztyn");
+        Person2 osoba = new Person2("Kamil", "Amarasekara", adres);
+
+        System.out.println(osoba);
+    }
+}
+
+Zad 3. Stwórz rekord BankAccount, który zawiera numer konta oraz saldo. Dodaj konstruktor, który pozwala na tworzenie konta tylko z numerem, przy czym domyślne saldo wynosi 0. Stwórz przypadek testowy.
+
+public record BankAccount(String accountNumber, double balance)
+{
+    public BankAccount(String accountNumber)
+    {
+        this(accountNumber, 70);
+    }
+}
+
+import javax.sound.midi.Soundbank;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        BankAccount konto = new BankAccount("128301823");
+        System.out.println("Numer konta: " + konto.accountNumber());
+        System.out.println("Saldo: " + konto.balance());
+    }
+}
+
+Zad 4. Stwórz rekord MusicTrack, który opisuje tytuł, artystę i czas trwania utworu w sekundach. Dodaj konstruktor, który przyjmuje tylko tytuł i artystę, przyjmując domyślną długość utworu jako 180 sekund. Stwórz przypadek testowy.
