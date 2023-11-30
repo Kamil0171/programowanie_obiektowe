@@ -165,3 +165,26 @@ public class Main
 }
 
 Zad 5. Stwórz rekord Car, który zawiera brand, model i fuelConsumptionPer100km. Dodaj metodę fuelCost(double fuelPrice, double distance), która oblicza i zwraca koszt podróży na podstawie podanej ceny paliwa oraz dystansu. Stwórz przypadek testowy.
+
+public record Car(String brand, String model, double fuelConsumptionPer100km)
+{
+    public double fuelCost(double fuelPrice, double distance)
+    {
+        double fuelConsumed = (fuelConsumptionPer100km / 100) * distance;
+        return fuelConsumed * fuelPrice;
+    }
+}
+
+import javax.sound.midi.Soundbank;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Car myCar = new Car("Toyota", "Corolla", 6.7);
+        double fuelPrice = 4.5;
+        double distance = 221;
+
+        System.out.println("Koszt podrozy: " + myCar.fuelCost(fuelPrice, distance));
+    }
+}
