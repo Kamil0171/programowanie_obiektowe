@@ -1,1 +1,60 @@
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
+class Student {
+    private int id;
+    private String name;
+    private double averageGrade;
+
+    public Student(int id, String name, double averageGrade) {
+        this.id = id;
+        this.name = name;
+        this.averageGrade = averageGrade;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getAverageGrade() {
+        return averageGrade;
+    }
+}
+
+class AverageGradeComparator implements Comparator<Student> {
+    @Override
+    public int compare(Student student1, Student student2) {
+        // Porównywanie po polu averageGrade (od najwyższej do najniższej średniej ocen)
+        return Double.compare(student2.getAverageGrade(), student1.getAverageGrade());
+    }
+}
+
+class IdComparator implements Comparator<Student> {
+    @Override
+    public int compare(Student student1, Student student2) {
+        // Porównywanie po polu id (od najniższego do najwyższego identyfikatora)
+        return Integer.compare(student1.getId(), student2.getId());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        List<Student> students = Arrays.asList(
+                new Student(1, "Student1", 4.5),
+                new Student(2, "Student2", 3.8),
+                new Student(3, "Student3", 4.2),
+                new Student(4, "Student4", 4.0),
+                new Student(5, "Student5", 4.8)
+        );
+
+        // Sortowanie listy students z użyciem dwóch różnych komparatorów
+        students.sort(new AverageGradeComparator().thenComparing(new IdComparator()));
+
+        // Wyświetlenie posortowanej listy
+        for (Student student : students) {
+            System.
