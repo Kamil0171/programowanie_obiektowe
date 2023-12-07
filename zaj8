@@ -118,7 +118,52 @@ public class Main
 
 Zad 1. Napisz klasę Ksiazka, która zawiera pola: tytul (typu String), liczbaStron (typu int) i dataWydania (typu LocalDate). Zaimplementuj interfejs Comparable w taki sposób, aby obiekty klasy Ksiazka były sortowane malejąco według liczby stron. Stwórz tablicę 4 obiektów klasy Ksiazka i posortuj ją według sprecyzowanego kryterium.
 
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Ksiazka implements Comparable<Ksiazka>
+{
+    private String tytul;
+    private int liczbaStron;
+    private LocalDate dataWydania;
+
+    public Ksiazka(String tytul, int liczbaStron, LocalDate dataWydania)
+    {
+        this.tytul = tytul;
+        this.liczbaStron = liczbaStron;
+        this.dataWydania = dataWydania;
+    }
+
+    @Override
+    public int compareTo(Ksiazka other)
+    {
+        return Integer.compare(other.liczbaStron, this.liczbaStron);
+    }
+
+    public static void main(String[] args)
+    {
+        Ksiazka[] ksiazki =
+                {
+                new Ksiazka("Książka1", 200, LocalDate.of(2020, 1, 1)),
+                new Ksiazka("Książka2", 150, LocalDate.of(2019, 5, 15)),
+                new Ksiazka("Książka3", 300, LocalDate.of(2022, 8, 20)),
+                new Ksiazka("Książka4", 180, LocalDate.of(2021, 3, 10))
+        };
+
+        Arrays.sort(ksiazki);
+
+        for (Ksiazka ksiazka : ksiazki)
+        {
+            System.out.println(ksiazka.tytul + " - " + ksiazka.liczbaStron + " stron");
+        }
+    }
+}
+
 Zad 2. Napisz klasę Samochod, która zawiera pola: marka (typu String), przebieg (typu int) i rokProdukcji (typu int). Zaimplementuj interfejs Comparable w taki sposób, aby obiekty klasy Samochod były sortowane rosnąco według przebiegu. Stwórz tablicę 4 obiektów klasy Samochod i posortuj ją według sprecyzowanego kryterium.
 
 Zad 3. Napisz klasę Zamowienie, która zawiera pola: nazwaProduktu (typu String), ilosc (typu int) i cenaJednostkowa (typu double). Zaimplementuj interfejs Comparable w taki sposób, aby obiekty klasy Zamowienie były sortowane według jednego kryterium: malejąco według ceny jednostkowej, a przy równości sortowane były rosnąco według ilości. Stwórz listę tablicową 4 obiektów klasy Zamowienie i posortuj ją według sprecyzowanego kryterium.
 
+Zad 4. Napisz klasę Order z polami id (typu int), customerName (typu String) oraz orderDate (typu LocalDate). Stwórz nową klasę i zaimplementuj w niej interfejs Comparator do porównywania obiektów po polu orderDate (od najwcześniejszej do najpóźniejszej daty), a w przypadku równości po polu id. Stwórz listę 5 obiektów klasy Order i posortuj ją zgodnie z opisanym kryterium.
+
+Zad 5. Napisz klasę Song z polami title (typu String), artist (typu String) oraz duration (typu int). Stwórz nową klasę i zaimplementuj w niej interfejs Comparator do porównywania obiektów po polu duration (od najkrótszej do najdłuższej piosenki), a w przypadku równości po polu title. Stwórz tablicę 5 obiektów klasy Song i posortuj ją zgodnie z opisanym kryterium.
