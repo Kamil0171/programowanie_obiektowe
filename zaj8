@@ -315,6 +315,65 @@ class Main1
 
 Zad 5. Napisz klasę Song z polami title (typu String), artist (typu String) oraz duration (typu int). Stwórz nową klasę i zaimplementuj w niej interfejs Comparator do porównywania obiektów po polu duration (od najkrótszej do najdłuższej piosenki), a w przypadku równości po polu title. Stwórz tablicę 5 obiektów klasy Song i posortuj ją zgodnie z opisanym kryterium.
 
+import java.util.Arrays;
+import java.util.Comparator;
+
+class Song
+{
+    private String title;
+    private String artist;
+    private int duration;
+
+    public Song(String title, String artist, int duration)
+    {
+        this.title = title;
+        this.artist = artist;
+        this.duration = duration;
+    }
+
+    public String getTitle()
+    {
+        return title;
+    }
+
+    public String getArtist()
+    {
+        return artist;
+    }
+
+    public int getDuration()
+    {
+        return duration;
+    }
+}
+
+class Main2
+{
+    public static void main(String[] args)
+    {
+        Song[] songs =
+                {
+                new Song("Song1", "Artist1", 180),
+                new Song("Song2", "Artist2", 240),
+                new Song("Song3", "Artist3", 200),
+                new Song("Song4", "Artist4", 180),
+                new Song("Song5", "Artist5", 210)
+        };
+
+        Arrays.sort
+                (songs, Comparator
+                .comparing(Song::getDuration)
+                .thenComparing(Song::getTitle)
+        );
+
+        for (Song song : songs)
+        {
+            System.out.println("Title: " + song.getTitle() + ", Artist: " + song.getArtist() +
+                    ", Duration: " + song.getDuration() + " seconds");
+        }
+    }
+}
+
 Zad 6. Napisz klasę Student z polami id (typu int), name (typu String) oraz averageGrade (typu double). Zaimplementuj dwie klasy implementujące generyczny interfejs Comparator: AverageGradeComparator do porównywania obiektów po polu averageGrade (od najwyższej do najniższej średniej ocen) oraz IdComparator do porównywania obiektów po polu id (od najniższego do najwyższego identyfikatora). Stwórz listę 5 obiektów klasy Student i posortuj ją zgodnie z oboma kryteriami (najpierw po średniej ocen, a następnie po identyfikatorze).
 
 Zad 7. Napisz klasę Athlete z dwoma polami: name (String) i lapTimes (lista tablicowa zmiennych typu int, reprezentująca czas w sekundach potrzebny na przebiegnięcie okrążenia podczas różnych prób). Zaimplementuj interfejs Cloneable i nadpisz metodę clone(), aby móc klonować obiekty tej klasy. W metodzie main() utwórz obiekt Athlete, sklonuj go, a następnie zmień czas na pozycji 3 oryginalnego sportowca. Wyświetl czasy obu sportowców, aby zobaczyć, czy są niezależne.
