@@ -376,4 +376,78 @@ class Main2
 
 Zad 6. Napisz klasę Student z polami id (typu int), name (typu String) oraz averageGrade (typu double). Zaimplementuj dwie klasy implementujące generyczny interfejs Comparator: AverageGradeComparator do porównywania obiektów po polu averageGrade (od najwyższej do najniższej średniej ocen) oraz IdComparator do porównywania obiektów po polu id (od najniższego do najwyższego identyfikatora). Stwórz listę 5 obiektów klasy Student i posortuj ją zgodnie z oboma kryteriami (najpierw po średniej ocen, a następnie po identyfikatorze).
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
+class Student
+{
+    private int id;
+    private String name;
+    private double averageGrade;
+
+    public Student(int id, String name, double averageGrade)
+    {
+        this.id = id;
+        this.name = name;
+        this.averageGrade = averageGrade;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public double getAverageGrade()
+    {
+        return averageGrade;
+    }
+}
+
+class AverageGradeComparator implements Comparator<Student>
+{
+    @Override
+    public int compare(Student student1, Student student2)
+    {
+        return Double.compare(student2.getAverageGrade(), student1.getAverageGrade());
+    }
+}
+
+class IdComparator implements Comparator<Student>
+{
+    @Override
+    public int compare(Student student1, Student student2)
+    {
+        return Integer.compare(student1.getId(), student2.getId());
+    }
+}
+
+class Main3
+{
+    public static void main(String[] args)
+    {
+        List<Student> students = Arrays.asList
+                (
+                new Student(1, "Student1", 4.5),
+                new Student(2, "Student2", 3.8),
+                new Student(3, "Student3", 4.2),
+                new Student(4, "Student4", 4.0),
+                new Student(5, "Student5", 4.8)
+        );
+
+        students.sort(new AverageGradeComparator().thenComparing(new IdComparator()));
+
+        for (Student student : students)
+        {
+            System.out.println("ID: " + student.getId() + ", Name: " + student.getName() +
+                    ", Average Grade: " + student.getAverageGrade());
+        }
+    }
+}
+
 Zad 7. Napisz klasę Athlete z dwoma polami: name (String) i lapTimes (lista tablicowa zmiennych typu int, reprezentująca czas w sekundach potrzebny na przebiegnięcie okrążenia podczas różnych prób). Zaimplementuj interfejs Cloneable i nadpisz metodę clone(), aby móc klonować obiekty tej klasy. W metodzie main() utwórz obiekt Athlete, sklonuj go, a następnie zmień czas na pozycji 3 oryginalnego sportowca. Wyświetl czasy obu sportowców, aby zobaczyć, czy są niezależne.
