@@ -1,1 +1,55 @@
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+class Athlete implements Cloneable {
+    private String name;
+    private List<Integer> lapTimes;
+
+    public Athlete(String name, List<Integer> lapTimes) {
+        this.name = name;
+        this.lapTimes = new ArrayList<>(lapTimes);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Integer> getLapTimes() {
+        return lapTimes;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        // Tworzenie głębokiej kopii listy lapTimes
+        Athlete clonedAthlete = (Athlete) super.clone();
+        clonedAthlete.lapTimes = new ArrayList<>(this.lapTimes);
+        return clonedAthlete;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Tworzenie oryginalnego sportowca
+        Athlete originalAthlete = new Athlete("John", Arrays.asList(60, 55, 58, 57));
+
+        try {
+            // Klonowanie sportowca
+            Athlete clonedAthlete = (Athlete) originalAthlete.clone();
+
+            // Zmiana czasu na pozycji 3 oryginalnego sportowca
+            originalAthlete.getLapTimes().set(2, 56);
+
+            // Wyświetlenie czasów obu sportowców
+            System.out.println("Original Athlete - Name: " + originalAthlete.getName() +
+                    ", Lap Times: " + originalAthlete.getLapTimes());
+
+            System.out.println("Cloned Athlete - Name: " + clonedAthlete.getName() +
+                    ", Lap Times: " + clonedAthlete.getLapTimes());
+
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+}
