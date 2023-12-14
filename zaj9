@@ -1,5 +1,45 @@
 Zad 1. Załóżmy, że mamy interfejs MusicPlayer z metodami turnOn(), turnOff() i nextTrack(). Stwórz klasę Radio, która będzie implementować ten interfejs. W metodzie turnOn() powinien zostać wydrukowany komunikat “Radio włączone”, w metodzie turnOff() - “Radio wyłączone”, a w nextTrack() - “Zmieniono stację radiową”.
 
+interface MusicPlayer
+{
+    void turnOn();
+    void turnOff();
+    void nextTrack();
+}
+
+class Radio implements MusicPlayer
+{
+    @Override
+    public void turnOn()
+    {
+        System.out.println("Radio włączone");
+    }
+
+    @Override
+    public void turnOff()
+    {
+        System.out.println("Radio wyłączone");
+    }
+
+    @Override
+    public void nextTrack()
+    {
+        System.out.println("Zmieniono stację radiową");
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Radio radio = new Radio();
+
+        radio.turnOn();
+        radio.nextTrack();
+        radio.turnOff();
+    }
+}
+
 Zad 2. Opracuj interfejs MediaPlayer z trzema abstrakcyjnymi metodami: play(String trackName) zwracającą void, pause() zwracającą void oraz getCurrentTrack() zwracającą String. Stwórz dwie klasy AudioPlayer i VideoPlayer, które implementują ten interfejs. W osobnej klasie MediaPlayerTest sprawdź działanie metod dla obiektów z obu klas.
 
 Zad 3. Stwórz interfejs Storage z trzema metodami abstrakcyjnymi: save(String data) zwracającą boolean, delete(String identifier) zwracającą boolean oraz retrieve(String identifier) zwracającą String. Zaprojektuj dwie klasy FileStorage i DatabaseStorage, które implementują ten interfejs. W klasie StorageTest wykonaj testy metod dla obiektów z obu klas.
