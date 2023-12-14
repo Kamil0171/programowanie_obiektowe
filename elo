@@ -1,1 +1,46 @@
+// Interfejs VehicleManager
+interface VehicleManager {
+    String startEngine();
+    int getFuelLevel();
+}
 
+// Klasa Car implementująca interfejs VehicleManager
+class Car implements VehicleManager {
+    @Override
+    public String startEngine() {
+        return "Silnik samochodu uruchomiony";
+    }
+
+    @Override
+    public int getFuelLevel() {
+        return 50;
+    }
+}
+
+// Klasa Motorcycle implementująca interfejs VehicleManager
+class Motorcycle implements VehicleManager {
+    @Override
+    public String startEngine() {
+        return "Silnik motocykla uruchomiony";
+    }
+
+    @Override
+    public int getFuelLevel() {
+        return 30;
+    }
+}
+
+// Klasa do testowania metod obiektów z obu klas
+class VehicleManagerTest {
+    public static void main(String[] args) {
+        // Testowanie klasy Car
+        Car car = new Car();
+        System.out.println(car.startEngine());
+        System.out.println("Poziom paliwa: " + car.getFuelLevel());
+
+        // Testowanie klasy Motorcycle
+        Motorcycle motorcycle = new Motorcycle();
+        System.out.println(motorcycle.startEngine());
+        System.out.println("Poziom paliwa: " + motorcycle.getFuelLevel());
+    }
+}
