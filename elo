@@ -1,1 +1,37 @@
+// Interfejs MusicPlayer
+interface MusicPlayer {
+    void turnOn();
+    void turnOff();
+    void nextTrack();
+}
 
+// Klasa Radio implementująca interfejs MusicPlayer
+class Radio implements MusicPlayer {
+    @Override
+    public void turnOn() {
+        System.out.println("Radio włączone");
+    }
+
+    @Override
+    public void turnOff() {
+        System.out.println("Radio wyłączone");
+    }
+
+    @Override
+    public void nextTrack() {
+        System.out.println("Zmieniono stację radiową");
+    }
+}
+
+// Klasa główna programu
+public class Main {
+    public static void main(String[] args) {
+        // Utwórz obiekt klasy Radio
+        Radio radio = new Radio();
+
+        // Wywołaj metody interfejsu MusicPlayer
+        radio.turnOn();
+        radio.nextTrack();
+        radio.turnOff();
+    }
+}
