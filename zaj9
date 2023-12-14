@@ -254,3 +254,43 @@ class VehicleManagerTest
 }
 
 Zad 5. Stwórz interfejs o nazwie MyComparator, który będzie zawierał metodę compare(int a, int b): int. Metoda ta powinna zwrócić -1, jeśli a < b, 0 jeśli a == b i 1 jeśli a > b. Następnie stwórz klasę TestMyComparator, która będzie implementować ten interfejs. W klasie tej zaimplementuj metodę compare zgodnie z jej opisem.
+
+interface MyComparator
+{
+    int compare(int a, int b);
+}
+
+class TestMyComparator implements MyComparator
+{
+    @Override
+    public int compare(int a, int b)
+    {
+        if (a < b)
+        {
+            return -1;
+        }
+        else if (a == b)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        TestMyComparator comparator = new TestMyComparator();
+        int result1 = comparator.compare(5, 10);
+        int result2 = comparator.compare(20, 20);
+        int result3 = comparator.compare(15, 5);
+
+        System.out.println("Wynik porównania 5 i 10: " + result1);
+        System.out.println("Wynik porównania 20 i 20: " + result2);
+        System.out.println("Wynik porównania 15 i 5: " + result3);
+    }
+}
