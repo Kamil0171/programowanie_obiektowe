@@ -179,19 +179,20 @@ class StorageTest
 {
     public static void main(String[] args)
     {
-        FileStorage fileStorage = new FileStorage();
-        fileStorage.save("Dane do zapisu w pliku");
-        System.out.println("Pobrane dane: " + fileStorage.retrieve("1337"));
-        fileStorage.delete("1337");
+        FileStorage file = new FileStorage();
+        file.save("Dane do zapisu w pliku");
+        System.out.println("Pobrane dane: " + file.retrieve("1337"));
+        file.delete("1337");
 
         System.out.println();
 
-        DatabaseStorage databaseStorage = new DatabaseStorage();
-        databaseStorage.save("Dane do zapisu w bazie danych");
-        System.out.println("Pobrane dane: " + databaseStorage.retrieve("123001"));
-        databaseStorage.delete("123001");
+        DatabaseStorage database = new DatabaseStorage();
+        database.save("Dane do zapisu w bazie danych");
+        System.out.println("Pobrane dane: " + database.retrieve("123001"));
+        database.delete("123001");
     }
 }
+
 
 
 Zad 4. Wykonaj poniższe czynności:
