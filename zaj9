@@ -201,4 +201,56 @@ Stwórz klasę Car, implementującą VehicleManager. W metodzie startEngine zwr�
 Stwórz klasę Motorcycle, również implementującą VehicleManager. W startEngine zwróć “Silnik motocykla uruchomiony”, a w getFuelLevel zwróć wartość 30.
 W klasie VehicleManagerTest stwórz obiekty obu klas i przetestuj ich metody.
 
+interface VehicleManager 
+{
+    String startEngine();
+    int getFuelLevel();
+}
+
+class Car implements VehicleManager
+{
+    @Override
+    public String startEngine()
+    {
+        return "Silnik samochodu uruchomiony";
+    }
+
+    @Override
+    public int getFuelLevel()
+    {
+        return 50;
+    }
+}
+
+class Motorcycle implements VehicleManager
+{
+    @Override
+    public String startEngine()
+    {
+        return "Silnik motocykla uruchomiony";
+    }
+
+    @Override
+    public int getFuelLevel() 
+    {
+        return 30;
+    }
+}
+
+class VehicleManagerTest 
+{
+    public static void main(String[] args)
+    {
+        Car car = new Car();
+        System.out.println(car.startEngine());
+        System.out.println("Poziom paliwa: " + car.getFuelLevel());
+
+        System.out.println();
+
+        Motorcycle motorcycle = new Motorcycle();
+        System.out.println(motorcycle.startEngine());
+        System.out.println("Poziom paliwa: " + motorcycle.getFuelLevel());
+    }
+}
+
 Zad 5. Stwórz interfejs o nazwie MyComparator, który będzie zawierał metodę compare(int a, int b): int. Metoda ta powinna zwrócić -1, jeśli a < b, 0 jeśli a == b i 1 jeśli a > b. Następnie stwórz klasę TestMyComparator, która będzie implementować ten interfejs. W klasie tej zaimplementuj metodę compare zgodnie z jej opisem.
