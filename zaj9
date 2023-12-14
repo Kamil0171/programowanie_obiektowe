@@ -42,6 +42,80 @@ public class Main
 
 Zad 2. Opracuj interfejs MediaPlayer z trzema abstrakcyjnymi metodami: play(String trackName) zwracającą void, pause() zwracającą void oraz getCurrentTrack() zwracającą String. Stwórz dwie klasy AudioPlayer i VideoPlayer, które implementują ten interfejs. W osobnej klasie MediaPlayerTest sprawdź działanie metod dla obiektów z obu klas.
 
+interface MediaPlayer
+{
+    void play(String trackName);
+    void pause();
+    String getCurrentTrack();
+}
+
+class AudioPlayer implements MediaPlayer
+{
+    private String currentTrack;
+
+    @Override
+    public void play(String trackName)
+    {
+        System.out.println("Odtwarzanie audio: " + trackName);
+        currentTrack = trackName;
+    }
+
+    @Override
+    public void pause()
+    {
+        System.out.println("Zatrzymano odtwarzanie audio");
+    }
+
+    @Override
+    public String getCurrentTrack()
+    {
+        return currentTrack;
+    }
+}
+
+class VideoPlayer implements MediaPlayer
+{
+    private String currentTrack;
+
+    @Override
+    public void play(String trackName)
+    {
+        System.out.println("Odtwarzanie wideo: " + trackName);
+        currentTrack = trackName;
+    }
+
+    @Override
+    public void pause()
+    {
+        System.out.println("Zatrzymano odtwarzanie wideo");
+    }
+
+    @Override
+    public String getCurrentTrack()
+    {
+        return currentTrack;
+    }
+}
+
+class MediaPlayerTest
+{
+    public static void main(String[] args)
+    {
+        AudioPlayer audioPlayer = new AudioPlayer();
+        audioPlayer.play("MAGNOLIA");
+        System.out.println("Aktualny utwor: " + audioPlayer.getCurrentTrack());
+        audioPlayer.pause();
+
+        System.out.println();
+
+        VideoPlayer videoPlayer = new VideoPlayer();
+        videoPlayer.play("Piraci z Karaibow");
+        System.out.println("Aktualne wideo: " + videoPlayer.getCurrentTrack());
+        videoPlayer.pause();
+    }
+}
+
+
 Zad 3. Stwórz interfejs Storage z trzema metodami abstrakcyjnymi: save(String data) zwracającą boolean, delete(String identifier) zwracającą boolean oraz retrieve(String identifier) zwracającą String. Zaprojektuj dwie klasy FileStorage i DatabaseStorage, które implementują ten interfejs. W klasie StorageTest wykonaj testy metod dla obiektów z obu klas.
 
 Zad 4. Wykonaj poniższe czynności:
