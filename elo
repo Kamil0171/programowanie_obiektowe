@@ -1,1 +1,71 @@
+// Interfejs Storage
+interface Storage {
+    boolean save(String data);
+    boolean delete(String identifier);
+    String retrieve(String identifier);
+}
 
+// Klasa FileStorage implementująca interfejs Storage
+class FileStorage implements Storage {
+    @Override
+    public boolean save(String data) {
+        System.out.println("Zapisano do pliku: " + data);
+        // Logika zapisu do pliku
+        return true;
+    }
+
+    @Override
+    public boolean delete(String identifier) {
+        System.out.println("Usunięto plik o identyfikatorze: " + identifier);
+        // Logika usuwania pliku
+        return true;
+    }
+
+    @Override
+    public String retrieve(String identifier) {
+        System.out.println("Pobrano dane z pliku o identyfikatorze: " + identifier);
+        // Logika pobierania danych z pliku
+        return "Zawartość pliku";
+    }
+}
+
+// Klasa DatabaseStorage implementująca interfejs Storage
+class DatabaseStorage implements Storage {
+    @Override
+    public boolean save(String data) {
+        System.out.println("Zapisano do bazy danych: " + data);
+        // Logika zapisu do bazy danych
+        return true;
+    }
+
+    @Override
+    public boolean delete(String identifier) {
+        System.out.println("Usunięto rekord o identyfikatorze z bazy danych: " + identifier);
+        // Logika usuwania rekordu z bazy danych
+        return true;
+    }
+
+    @Override
+    public String retrieve(String identifier) {
+        System.out.println("Pobrano dane z bazy danych o identyfikatorze: " + identifier);
+        // Logika pobierania danych z bazy danych
+        return "Zawartość rekordu";
+    }
+}
+
+// Klasa do testowania metod obiektów z obu klas
+class StorageTest {
+    public static void main(String[] args) {
+        // Testowanie FileStorage
+        FileStorage fileStorage = new FileStorage();
+        fileStorage.save("Dane do zapisu w pliku");
+        System.out.println("Pobrane dane: " + fileStorage.retrieve("123"));
+        fileStorage.delete("123");
+
+        // Testowanie DatabaseStorage
+        DatabaseStorage databaseStorage = new DatabaseStorage();
+        databaseStorage.save("Dane do zapisu w bazie danych");
+        System.out.println("Pobrane dane: " + databaseStorage.retrieve("456"));
+        databaseStorage.delete("456");
+    }
+}
