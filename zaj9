@@ -118,6 +118,82 @@ class MediaPlayerTest
 
 Zad 3. Stwórz interfejs Storage z trzema metodami abstrakcyjnymi: save(String data) zwracającą boolean, delete(String identifier) zwracającą boolean oraz retrieve(String identifier) zwracającą String. Zaprojektuj dwie klasy FileStorage i DatabaseStorage, które implementują ten interfejs. W klasie StorageTest wykonaj testy metod dla obiektów z obu klas.
 
+import com.sun.source.tree.BreakTree;
+
+public interface Storage
+{
+    boolean save(String data);
+    boolean delete(String identifier);
+    String retrieve(String identifier);
+}
+
+class FileStorage implements Storage
+{
+    @Override
+    public boolean save(String data)
+    {
+        System.out.println("Zapisano: " + data);
+        return true;
+    }
+
+    @Override
+    public boolean delete(String identifier)
+    {
+        System.out.println("Usunieto: " + identifier);
+        return true;
+    }
+
+    @Override
+    public String retrieve(String identifier)
+    {
+        System.out.println("Pobrano dane: " + identifier);
+        return "Zawartosc pliku";
+    }
+}
+
+class DatabaseStorage implements Storage
+{
+    @Override
+    public boolean save(String data)
+    {
+        System.out.println("Zapisano: " + data);
+        return true;
+    }
+
+    @Override
+    public boolean delete(String identifier)
+    {
+        System.out.println("Usunieto z bazy danych: " + identifier);
+        return true;
+    }
+
+    @Override
+    public String retrieve(String identifier)
+    {
+        System.out.println("Pobrano z bazy danych: " + identifier);
+        return "Zawartosc bazy";
+    }
+}
+
+class StorageTest
+{
+    public static void main(String[] args)
+    {
+        FileStorage fileStorage = new FileStorage();
+        fileStorage.save("Dane do zapisu w pliku");
+        System.out.println("Pobrane dane: " + fileStorage.retrieve("1337"));
+        fileStorage.delete("1337");
+
+        System.out.println();
+
+        DatabaseStorage databaseStorage = new DatabaseStorage();
+        databaseStorage.save("Dane do zapisu w bazie danych");
+        System.out.println("Pobrane dane: " + databaseStorage.retrieve("123001"));
+        databaseStorage.delete("123001");
+    }
+}
+
+
 Zad 4. Wykonaj poniższe czynności:
 Utwórz interfejs VehicleManager z dwoma metodami abstrakcyjnymi: startEngine() zwracającą String i getFuelLevel() zwracającą int.
 Stwórz klasę Car, implementującą VehicleManager. W metodzie startEngine zwróć “Silnik samochodu uruchomiony”, a w getFuelLevel zwróć wartość 50.
