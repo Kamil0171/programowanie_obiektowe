@@ -1,1 +1,270 @@
+Zad 1. Wykonaj poniższe czynności:
+Stwórz interfejs Printer z metodą drukuj(String tekst).
+Utwórz klasę StandardowyPrinter, która implementuje Printer i wypisuje tekst na konsolę.
+Utwórz klasę Biuro, która posiada prywatne pole typu Printer. W konstruktorze Biuro przyjmij Printer jako argument i przypisz go do pola. Dodaj metodę drukujDokument(String tekst), która będzie delegować zadanie drukowania do obiektu klasy Printer.
 
+interface Printer
+{
+    void drukuj(String tekst);
+}
+
+class StandardowyPrinter implements Printer
+{
+    @Override
+    public void drukuj(String tekst)
+    {
+        System.out.println("Drukuje: " + tekst);
+    }
+}
+
+class Biuro
+{
+    Printer printer;
+
+    public Biuro(Printer printer)
+    {
+        this.printer = printer;
+    }
+
+    public void drukujDokument(String tekst)
+    {
+        printer.drukuj(tekst);
+    }
+}
+
+ class Main
+ {
+     public static void main(String[] args)
+     {
+         StandardowyPrinter standardowyPrinter = new StandardowyPrinter();
+         Biuro biuro = new Biuro(standardowyPrinter);
+
+         biuro.drukujDokument("Przykladowy tekst");
+     }
+}
+
+Zad 2. Wykonaj poniższe czynności:
+Stwórz interfejs Silnik z metodami uruchom() i zatrzymaj().
+Utwórz klasę BenzynowySilnik, która implementuje Silnik i symuluje działanie silnika na benzynę.
+Utwórz klasę Samochód, która posiada prywatne pole typu Silnik. W konstruktorze przyjmij Silnik jako argument. Dodaj metody start() i stop(), które będą delegować odpowiednio zadanie uruchomienia i zatrzymania silnika do obiektu klasy Silnik.
+
+interface Silnik
+{
+    void uruchom();
+    void zatrzymaj();
+}
+
+class BenzynowySilnik implements Silnik
+{
+    @Override
+    public void uruchom() {
+        System.out.println("Silnik benzynowy zostal uruchomiony");
+    }
+
+    @Override
+    public void zatrzymaj() {
+        System.out.println("Silnik benzynowy zostal zatrzymany");
+    }
+}
+
+class Samochod
+{
+    private Silnik silnik;
+
+    public Samochod(Silnik silnik)
+    {
+        this.silnik = silnik;
+    }
+
+    public void start()
+    {
+        silnik.uruchom();
+    }
+
+    public void stop()
+    {
+        silnik.zatrzymaj();
+    }
+}
+
+ class Main
+ {
+     public static void main(String[] args)
+     {
+         BenzynowySilnik benzynowySilnik = new BenzynowySilnik();
+         Samochod samochod = new Samochod(benzynowySilnik);
+
+         samochod.start();
+         samochod.stop();
+     }
+}
+
+Zad 3. Wykonaj poniższe czynności:
+Stwórz interfejs Powiadomienie z metodą wyślij(String wiadomość).
+Utwórz klasę Email, która implementuje Powiadomienie i symuluje wysyłanie wiadomości e-mail.
+Utwórz klasę Użytkownik, która posiada prywatne pole typu Powiadomienie. W konstruktorze przyjmij Powiadomienie jako argument. Dodaj metodę powiadomOModernizacji(String informacja), która będzie delegować zadanie wysyłania powiadomienia do obiektu klasy Powiadomienie.
+
+interface Powiadomienie
+{
+    void wyslij(String wiadomosc);
+}
+
+    class Email implements Powiadomienie
+    {
+    @Override
+    public void wyslij(String wiadomosc)
+    {
+        System.out.println("Wyslalem e-mail: " + wiadomosc);
+    }
+}
+
+class Uzytkownik
+{
+    private Powiadomienie powiadomienie;
+
+    public Uzytkownik(Powiadomienie powiadomienie)
+    {
+        this.powiadomienie = powiadomienie;
+    }
+
+    public void powiadomOModernizacji(String informacja)
+    {
+        powiadomienie.wyslij(informacja);
+    }
+}
+
+class Main2 
+{
+    public static void main(String[] args)
+    {
+        Email email = new Email();
+        Uzytkownik u = new Uzytkownik(email);
+
+        u.powiadomOModernizacji("Dzisiaj na uczelni nie bedzie wody w kranie");
+    }
+}
+
+Zad 4. Napisz program, który definiuje metodę checkAge(int age). Metoda ta powinna rzucić wyjątek IllegalArgumentException z odpowiednim komunikatem, jeśli podany wiek jest mniejszy niż 18. W głównej metodzie programu (main) wywołaj checkAge z różnymi wartościami i obsłuż wyjątek, wyświetlając stosowny komunikat dla użytkownika.
+
+class Main
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+            checkAge(20);
+            checkAge(15);
+            checkAge(25);
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.out.println("Blad: " + e.getMessage());
+        }
+    }
+
+    public static void checkAge(int age)
+    {
+        if (age < 18)
+        {
+            throw new IllegalArgumentException("Osoba musi być pelnoletnia");
+        }
+        else
+        {
+            System.out.println("Wiek: " + age + " - Osoba jest pelnoletnia");
+        }
+    }
+}
+
+Zad 5. Napisz program, który prosi użytkownika o wpisanie dwóch liczb, a następnie dzieli pierwszą liczbę przez drugą. Program powinien obsługiwać dwa rodzaje wyjątków: ArithmeticException w przypadku dzielenia przez zero i InputMismatchException, gdy użytkownik wprowadzi coś innego niż liczby. W obu przypadkach należy wyświetlić stosowny komunikat błędu i poprosić użytkownika o ponowne wprowadzenie danych. Wykorzystaj typ int.
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Podaj pierwsza liczbe:");
+        int liczba1 = pobierzLiczbe(scanner);
+
+        System.out.println("Podaj druga liczbe:");
+        int liczba2 = pobierzLiczbe(scanner);
+
+        try
+        {
+            int wynik = dzielenie(liczba1, liczba2);
+            System.out.println("Wynik dzielenia: " + wynik);
+        }
+        catch (ArithmeticException e)
+        {
+            System.out.println("Blad: " + e.getMessage());
+        }
+    }
+
+    private static int pobierzLiczbe(Scanner scanner)
+    {
+        while (true)
+        {
+            try
+            {
+                return scanner.nextInt();
+            }
+            catch (InputMismatchException e)
+            {
+                System.out.println("Blad: Wprowadz poprawna liczbe");
+                scanner.next();
+            }
+        }
+    }
+
+    private static int dzielenie(int liczba1, int liczba2)
+    {
+        if (liczba2 == 0)
+        {
+            throw new ArithmeticException("Nie mozna dzielic przez zero");
+        }
+        return liczba1 / liczba2;
+    }
+}
+
+Zad 6. Zaprojektuj i zaimplementuj klasę wyjątku NiepoprawnyFormatDanychException, która będzie rozszerzać klasę Exception. Następnie napisz metodę sprawdzFormatDanych(String dane), która rzuci wyjątek NiepoprawnyFormatDanychException, jeśli podany ciąg znaków nie odpowiada określonemu wzorcowi (np. nie jest adresem e-mail). W metodzie main przetestuj działanie tej metody, obsługując wyjątek i informując użytkownika o błędzie.
+
+class NiepoprawnyFormatDanychException extends Exception
+{
+    public NiepoprawnyFormatDanychException(String message)
+    {
+        super(message);
+    }
+}
+
+class Main3
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+            sprawdzFormatDanych("jan.kowalski23@gmail.com");
+            sprawdzFormatDanych("niepoprawny adres");
+        }
+        catch (NiepoprawnyFormatDanychException e)
+        {
+            System.out.println("Blad: " + e.getMessage());
+        }
+    }
+
+    public static void sprawdzFormatDanych(String dane) throws NiepoprawnyFormatDanychException
+    {
+        String wzorzecEmail = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,6}$";
+
+        if (!dane.matches(wzorzecEmail))
+        {
+            throw new NiepoprawnyFormatDanychException("Niepoprawny format danych. Oczekiwano adresu e-mail.");
+        }
+        else
+        {
+            System.out.println("Dane sa w poprawnym formacie: " + dane);
+        }
+    }
+}
