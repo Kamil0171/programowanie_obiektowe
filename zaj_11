@@ -143,6 +143,70 @@ public class Main
 
 Zad 4. Napisz statyczną metodę generyczną maxValue, która przyjmuje tablicę elementów typu generycznego T, gdzie T rozszerza Comparable<T>. Metoda powinna zwracać największy element z tablicy. Upewnij się, że metoda nie akceptuje pustej tablicy (o zerowej liczbie elementów). Przetestuj metodę na tablicach zawierających różne typy porównywalnych obiektów, jak Integer, Float, czy String. Stwórz klasę Vehicle z polami model i speed, implementującą generyczny Comparable, i przetestuj metodę maxValue na tablicy obiektów Vehicle.
 
+import java.util.Arrays;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Integer[] intTab = {5, 2, 8, 1, 9};
+        Float[] floatTab = {2.5f, 7.2f, 4.8f, 1.3f};
+        String[] stringTab = {"apple", "banana", "cherry", "date"};
+        Vehicle[] vehicleTab =
+                {
+                new Vehicle("Car", 120),
+                new Vehicle("Bike", 25),
+                new Vehicle("Truck", 80)
+        };
+
+        System.out.println("Max int tab: " + maxValue(intTab));
+        System.out.println("Max float tab: " + maxValue(floatTab));
+        System.out.println("Max string tab: " + maxValue(stringTab));
+        System.out.println("Max speed w vehicle tab: " + maxValue(vehicleTab).getSpeed());
+    }
+
+    public static <T extends Comparable<T>> T maxValue(T[] tab)
+    {
+        if (tab.length == 0
+        ) {
+            throw new IllegalArgumentException("Tablica nie moze byc pusta");
+        }
+
+        T max = tab[0];
+        for (T element : tab)
+        {
+            if (element.compareTo(max) > 0)
+            {
+                max = element;
+            }
+        }
+        return max;
+    }
+
+    static class Vehicle implements Comparable<Vehicle>
+    {
+        private String model;
+        private int speed;
+
+        public Vehicle(String model, int speed)
+        {
+            this.model = model;
+            this.speed = speed;
+        }
+
+        public int getSpeed()
+        {
+            return speed;
+        }
+
+        @Override
+        public int compareTo(Vehicle other)
+        {
+            return Integer.compare(this.speed, other.speed);
+        }
+    }
+}
+
 Zad 5. Zdefiniuj klasy Car (Samochód) i ElectricCar (Samochód Elektryczny), gdzie ElectricCar dziedziczy po Car. Napisz statyczną metodę generyczną compareObjects, która przyjmuje dwa argumenty: object1 i object2 typu extends Car. Metoda ma zwracać wartość true, jeśli obiekty są tego samego typu, w przeciwnym wypadku false. Użyj metody getClass() do porównania klas obiektów.
 
 Zad 6. Stwórz klasę generyczną Triple<T>, która przechowuje trzy obiekty tego samego typu. Następnie utwórz dwie klasy: Bird i Eagle, gdzie Eagle dziedziczy po Bird. Potem napisz statyczną metodę generyczną findMin, która przyjmuje Triple<? extends Bird>. Ta metoda powinna zwracać element mniejszy na podstawie kryterium porównania zdefiniowanego przez ciebie.
