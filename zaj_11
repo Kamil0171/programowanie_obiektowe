@@ -255,4 +255,94 @@ public class Main
 
 Zad 6. Stwórz klasę generyczną Triple<T>, która przechowuje trzy obiekty tego samego typu. Następnie utwórz dwie klasy: Bird i Eagle, gdzie Eagle dziedziczy po Bird. Potem napisz statyczną metodę generyczną findMin, która przyjmuje Triple<? extends Bird>. Ta metoda powinna zwracać element mniejszy na podstawie kryterium porównania zdefiniowanego przez ciebie.
 
+public class Tripple <T>
+{
+        private T first;
+        private T second;
+        private T third;
+
+        public Tripple(T first, T second, T third)
+        {
+            this.first = first;
+            this.second = second;
+            this.third = third;
+        }
+
+        public T getFirst() 
+        {
+            return first;
+        }
+
+        public T getSecond()
+        {
+            return second;
+        }
+
+        public T getThird()
+        {
+            return third;
+        }
+}
+
+class Bird
+{
+    private String name;
+    private int size;
+
+    public Bird(String name, int size) 
+    {
+        this.name = name;
+        this.size = size;
+    }
+
+    public String getName() 
+    {
+        return name;
+    }
+
+    public int getSize() 
+    {
+        return size;
+    }
+}
+
+class Eagle extends Bird
+{
+    public Eagle(String name, int size) 
+    {
+        super(name, size);
+
+}
+
+    public static <T extends Bird> T findMin(Tripple<T> triple)
+    {
+        T min = triple.getFirst();
+        T second = triple.getSecond();
+        T third = triple.getThird();
+
+        if (second.getSize() < min.getSize()) 
+        {
+            min = second;
+        }
+        if (third.getSize() < min.getSize()) 
+        {
+            min = third;
+        }
+        return min;
+    }
+}
+
+import java.util.Arrays;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Tripple<Bird> birdTriple = new Tripple<>(new Bird("Jack Sparrow", 15), new Bird("Robin", 12), new Bird("Gwiazdka", 50));
+
+        Bird minBird = Eagle.findMin(birdTriple);
+        System.out.println("Ptak z najmniejsza wartoscia: " + minBird.getName());
+    }
+}
+
 Zad 7. Stwórz klasę generyczną Pair<T> która przechowuje dwa obiekty tego samego typu. Utwórz dwie klasy: Animal (Zwierzę) i Dog (Pies), gdzie Dog dziedziczy po Animal. Klasa Dog ma posiadać prywatne pole age, które nie posiada klasa Animal. Następnie napisz statyczną metodę generyczną findMinMaxAge, która przyjmuje jako argument tablicę obiektów typu Dog oraz Pair<?super Dog> result. Metoda powinna ma zapisać (jako obiekty typu Dog) najmniejszy i najmniejszy (pod kątem wieku) psa z tablicy w drugim argumencie metody. Zrób to bezpośrednio bez używania interfejsów Comparable czy Comparator.
