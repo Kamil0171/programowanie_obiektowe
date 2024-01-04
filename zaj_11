@@ -1,1 +1,41 @@
+public class Box <T,U> {
+    T value;
+    U value2;
+    public Box(T value, U value2)
+    {
+        this.value = value;
+        this.value2 = value2;
+    }
+}
 
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Box<String, Integer> box = new Box<>("Czesc", 3);
+        Box<Integer, String> box2 = new Box<>(5, "Elo");
+        Box<Integer, Integer> box3 = new Box<>(5, 16);
+
+        wypisz(4);
+        wypisz("Siemanko");
+    }
+
+    public static <T> void wypisz(T val)
+    {
+        System.out.println(val);
+    }
+}
+
+Zad 1. Napisz generyczną metodę isEqual, która przyjmuje dwa dowolne obiekty tego samego typu i zwraca true, jeśli są one równe, w przeciwnym razie false.
+
+Zad 2. Stwórz klasę generyczną Triple<T, U, V>, która może przechowywać trzy obiekty różnych typów. Zaimplementuj metody getFirst(), getSecond() i getThird() do pobierania odpowiednio pierwszego, drugiego i trzeciego elementu.
+
+Zad 3. Napisz statyczną metodę generyczną swap, która przyjmuje tablicę dowolnego typu i dwa indeksy, a następnie zamienia miejscami elementy w tej tablicy pod wskazanymi indeksami. Metoda powinna działać dla tablicy każdego typu. Przykładowe wywołanie metody: swap(myArray, 0, 2);, gdzie myArray to tablica typu Integer[] lub dowolnego innego typu. Zabezpiecz metodę tak, aby nie można było jej wywołać z indeksami spoza zakresu tablicy.
+
+Zad 4. Napisz statyczną metodę generyczną maxValue, która przyjmuje tablicę elementów typu generycznego T, gdzie T rozszerza Comparable<T>. Metoda powinna zwracać największy element z tablicy. Upewnij się, że metoda nie akceptuje pustej tablicy (o zerowej liczbie elementów). Przetestuj metodę na tablicach zawierających różne typy porównywalnych obiektów, jak Integer, Float, czy String. Stwórz klasę Vehicle z polami model i speed, implementującą generyczny Comparable, i przetestuj metodę maxValue na tablicy obiektów Vehicle.
+
+Zad 5. Zdefiniuj klasy Car (Samochód) i ElectricCar (Samochód Elektryczny), gdzie ElectricCar dziedziczy po Car. Napisz statyczną metodę generyczną compareObjects, która przyjmuje dwa argumenty: object1 i object2 typu extends Car. Metoda ma zwracać wartość true, jeśli obiekty są tego samego typu, w przeciwnym wypadku false. Użyj metody getClass() do porównania klas obiektów.
+
+Zad 6. Stwórz klasę generyczną Triple<T>, która przechowuje trzy obiekty tego samego typu. Następnie utwórz dwie klasy: Bird i Eagle, gdzie Eagle dziedziczy po Bird. Potem napisz statyczną metodę generyczną findMin, która przyjmuje Triple<? extends Bird>. Ta metoda powinna zwracać element mniejszy na podstawie kryterium porównania zdefiniowanego przez ciebie.
+
+Zad 7. Stwórz klasę generyczną Pair<T> która przechowuje dwa obiekty tego samego typu. Utwórz dwie klasy: Animal (Zwierzę) i Dog (Pies), gdzie Dog dziedziczy po Animal. Klasa Dog ma posiadać prywatne pole age, które nie posiada klasa Animal. Następnie napisz statyczną metodę generyczną findMinMaxAge, która przyjmuje jako argument tablicę obiektów typu Dog oraz Pair<?super Dog> result. Metoda powinna ma zapisać (jako obiekty typu Dog) najmniejszy i najmniejszy (pod kątem wieku) psa z tablicy w drugim argumencie metody. Zrób to bezpośrednio bez używania interfejsów Comparable czy Comparator.
