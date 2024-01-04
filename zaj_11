@@ -28,6 +28,39 @@ public class Main
 
 Zad 1. Napisz generyczną metodę isEqual, która przyjmuje dwa dowolne obiekty tego samego typu i zwraca true, jeśli są one równe, w przeciwnym razie false.
 
+public class Main
+{
+    public static void main(String[] args)
+    {
+        String str1 = "Siemka";
+        String str2 = "Siema";
+        boolean stringsEqual = isEqual(str1, str2);
+
+        System.out.println("Czy stringi sa rowne? " + stringsEqual);
+
+        Integer liczba1 = 42;
+        Integer liczba2 = 42;
+        boolean liczbyEqual = isEqual(liczba1, liczba2);
+
+        System.out.println("Czy liczby sa rowne? " + liczbyEqual);
+
+        int[] tab1 = {1, 2, 3};
+        int[] tab2 = {1, 2, 3};
+        boolean tabEqual = isEqual(tab1, tab2);
+
+        System.out.println("Czy tablice sa rowne? " + tabEqual);
+    }
+
+    public static <T> boolean isEqual(T obj1, T obj2)
+    {
+        if (obj1 == null && obj2 == null)
+        {
+            return true;
+        }
+        return obj1 != null && obj1.equals(obj2);
+    }
+}
+
 Zad 2. Stwórz klasę generyczną Triple<T, U, V>, która może przechowywać trzy obiekty różnych typów. Zaimplementuj metody getFirst(), getSecond() i getThird() do pobierania odpowiednio pierwszego, drugiego i trzeciego elementu.
 
 Zad 3. Napisz statyczną metodę generyczną swap, która przyjmuje tablicę dowolnego typu i dwa indeksy, a następnie zamienia miejscami elementy w tej tablicy pod wskazanymi indeksami. Metoda powinna działać dla tablicy każdego typu. Przykładowe wywołanie metody: swap(myArray, 0, 2);, gdzie myArray to tablica typu Integer[] lub dowolnego innego typu. Zabezpiecz metodę tak, aby nie można było jej wywołać z indeksami spoza zakresu tablicy.
