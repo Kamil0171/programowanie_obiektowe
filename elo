@@ -1,1 +1,22 @@
+public class GenericEquality {
+    public static <T> boolean isEqual(T obj1, T obj2) {
+        if (obj1 == null && obj2 == null) {
+            return true;
+        }
+        return obj1 != null && obj1.equals(obj2);
+    }
 
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "Hello";
+        boolean stringsEqual = isEqual(str1, str2);
+        System.out.println("Are strings equal? " + stringsEqual);
+
+        Integer num1 = 42;
+        Integer num2 = 42;
+        boolean numbersEqual = isEqual(num1, num2);
+        System.out.println("Are numbers equal? " + numbersEqual);
+
+        // Dodaj inne przykłady dla różnych typów obiektów
+    }
+}
