@@ -63,6 +63,48 @@ public class Main
 
 Zad 2. Stwórz klasę generyczną Triple<T, U, V>, która może przechowywać trzy obiekty różnych typów. Zaimplementuj metody getFirst(), getSecond() i getThird() do pobierania odpowiednio pierwszego, drugiego i trzeciego elementu.
 
+public class Triple<T, U, V>
+{
+    T first;
+    U second;
+    V third;
+
+    public Triple(T first, U second, V third)
+    {
+        this.first = first;
+        this.second = second;
+        this.third = third;
+    }
+
+    public T getFirst()
+    {
+        return first;
+    }
+
+    public U getSecond()
+    {
+        return second;
+    }
+
+    public V getThird()
+    {
+        return third;
+    }
+
+    public static void main(String[] args)
+    {
+        Triple<String, Integer, Boolean> triple = new Triple<>("Siema", 19, true);
+
+        String pierwszy = triple.getFirst();
+        Integer drugi = triple.getSecond();
+        Boolean trzeci = triple.getThird();
+
+        System.out.println("Pierwszy element: " + pierwszy);
+        System.out.println("Drugi element: " + drugi);
+        System.out.println("Trzeci element: " + trzeci);
+    }
+}
+
 Zad 3. Napisz statyczną metodę generyczną swap, która przyjmuje tablicę dowolnego typu i dwa indeksy, a następnie zamienia miejscami elementy w tej tablicy pod wskazanymi indeksami. Metoda powinna działać dla tablicy każdego typu. Przykładowe wywołanie metody: swap(myArray, 0, 2);, gdzie myArray to tablica typu Integer[] lub dowolnego innego typu. Zabezpiecz metodę tak, aby nie można było jej wywołać z indeksami spoza zakresu tablicy.
 
 Zad 4. Napisz statyczną metodę generyczną maxValue, która przyjmuje tablicę elementów typu generycznego T, gdzie T rozszerza Comparable<T>. Metoda powinna zwracać największy element z tablicy. Upewnij się, że metoda nie akceptuje pustej tablicy (o zerowej liczbie elementów). Przetestuj metodę na tablicach zawierających różne typy porównywalnych obiektów, jak Integer, Float, czy String. Stwórz klasę Vehicle z polami model i speed, implementującą generyczny Comparable, i przetestuj metodę maxValue na tablicy obiektów Vehicle.
