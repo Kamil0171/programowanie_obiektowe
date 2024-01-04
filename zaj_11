@@ -107,6 +107,40 @@ public class Triple<T, U, V>
 
 Zad 3. Napisz statyczną metodę generyczną swap, która przyjmuje tablicę dowolnego typu i dwa indeksy, a następnie zamienia miejscami elementy w tej tablicy pod wskazanymi indeksami. Metoda powinna działać dla tablicy każdego typu. Przykładowe wywołanie metody: swap(myArray, 0, 2);, gdzie myArray to tablica typu Integer[] lub dowolnego innego typu. Zabezpiecz metodę tak, aby nie można było jej wywołać z indeksami spoza zakresu tablicy.
 
+import java.util.Arrays;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Integer[] intArray = {5, 7, 2, 3, 1};
+        Double[] doubleArray = {3.2, 1.87, 123.1, 4.0, 5.5};
+        String[] stringArray = {"Jablko", "Gruszka", "Sliwka", "Ananas", "Jagoda"};
+
+        swap(intArray, 0, 2);
+        swap(doubleArray, 1, 4);
+        swap(stringArray, 3, 0);
+
+        System.out.println("Swap tab1: " + Arrays.toString(intArray));
+        System.out.println("Swap tab2: " + Arrays.toString(doubleArray));
+        System.out.println("Swap tab3: " + Arrays.toString(stringArray));
+
+        swap(intArray, -1, 5);
+    }
+
+    public static <T> void swap(T[] tab, int index1, int index2)
+    {
+        if (index1 < 0 || index2 < 0 || index1 >= tab.length || index2 >= tab.length)
+        {
+            return;
+        }
+
+        T temp = tab[index1];
+        tab[index1] = tab[index2];
+        tab[index2] = temp;
+    }
+}
+
 Zad 4. Napisz statyczną metodę generyczną maxValue, która przyjmuje tablicę elementów typu generycznego T, gdzie T rozszerza Comparable<T>. Metoda powinna zwracać największy element z tablicy. Upewnij się, że metoda nie akceptuje pustej tablicy (o zerowej liczbie elementów). Przetestuj metodę na tablicach zawierających różne typy porównywalnych obiektów, jak Integer, Float, czy String. Stwórz klasę Vehicle z polami model i speed, implementującą generyczny Comparable, i przetestuj metodę maxValue na tablicy obiektów Vehicle.
 
 Zad 5. Zdefiniuj klasy Car (Samochód) i ElectricCar (Samochód Elektryczny), gdzie ElectricCar dziedziczy po Car. Napisz statyczną metodę generyczną compareObjects, która przyjmuje dwa argumenty: object1 i object2 typu extends Car. Metoda ma zwracać wartość true, jeśli obiekty są tego samego typu, w przeciwnym wypadku false. Użyj metody getClass() do porównania klas obiektów.
