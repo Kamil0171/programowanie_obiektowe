@@ -1,1 +1,40 @@
+Zad 1. Napisz program, który prosi użytkownika o wpisanie dwóch liczb, a następnie dzieli pierwszą liczbę przez drugą. Program powinien obsługiwać dwa rodzaje wyjątków: ArithmeticException w przypadku dzielenia przez zero i InputMismatchException, gdy użytkownik wprowadzi coś innego niż liczby. W obu przypadkach należy wyświetlić stosowny komunikat błędu i poprosić użytkownika o ponowne wprowadzenie danych. Wykorzystaj typ int.
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        while(true)
+        {
+        try
+        {
+            System.out.println("Podaj a:");
+            int a = scanner.nextInt();
+            System.out.println("Podaj b:");
+            int b = scanner.nextInt();
+
+            System.out.println(podziel(a, b));
+            break;
+        } catch (ArithmeticException a)
+        {
+            System.out.println("Nie mozna dzielic przez 0");
+        } catch (InputMismatchException b)
+        {
+            System.out.println("Zle dane");
+            scanner.nextLine();
+        }
+    }
+}
+    public static int podziel(int a, int b)
+    {
+        return a/b;
+    }
+}
+
+Zad 2. Zaprojektuj i zaimplementuj klasę wyjątku NiepoprawnyFormatDanychException, która będzie rozszerzać klasę Exception. Następnie napisz metodę sprawdzFormatDanych(String dane), która rzuci wyjątek NiepoprawnyFormatDanychException, jeśli podany ciąg znaków nie odpowiada określonemu wzorcowi (np. nie jest adresem e-mail). W metodzie main przetestuj działanie tej metody, obsługując wyjątek i informując użytkownika o błędzie.
 
