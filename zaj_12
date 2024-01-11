@@ -36,5 +36,51 @@ public class Main
     }
 }
 
-Zad 2. Zaprojektuj i zaimplementuj klasę wyjątku NiepoprawnyFormatDanychException, która będzie rozszerzać klasę Exception. Następnie napisz metodę sprawdzFormatDanych(String dane), która rzuci wyjątek NiepoprawnyFormatDanychException, jeśli podany ciąg znaków nie odpowiada określonemu wzorcowi (np. nie jest adresem e-mail). W metodzie main przetestuj działanie tej metody, obsługując wyjątek i informując użytkownika o błędzie.
+Zad 2. Napisz klasę Product, która zawiera pola: name (typu String), price (typu double) i productionYear (typu int). Zaimplementuj interfejs Comparable w taki sposób, aby obiekty klasy Product były sortowane rosnąco według daty produkcji. Stwórz listę tablicową 5 obiektów klasy Product i posortuj ją według sprecyzowanego kryterium.
 
+public class Produkt implements Comparable<Produkt>
+{
+    String name;
+    double price;
+    int productionYear;
+
+    @Override
+    public int compareTo(Produkt o)
+    {
+        return Integer.compare(this.productionYear, o.productionYear);
+    }
+
+    public Produkt(String name, double price, int productionYear)
+    {
+        this.name = name;
+        this.price = price;
+        this.productionYear = productionYear;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Produkt{" +
+                "productionYear=" + productionYear +
+                '}';
+    }
+}
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        ArrayList<Produkt> lista = new ArrayList<>();
+        lista.add(new Produkt("produk1", 5, 1992));
+        lista.add(new Produkt("produk2", 8, 2003));
+        lista.add(new Produkt("produk3", 12, 2021));
+        lista.add(new Produkt("produk4", 42, 2012));
+        lista.add(new Produkt("produk5", 76, 2000));
+
+        Collections.sort(lista);
+        System.out.println(lista);
+    }
+}
